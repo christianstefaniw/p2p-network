@@ -1,3 +1,3 @@
 # p2p messaging
 
-A peer 2 peer messaging network using Java and gRPC
+A peer 2 peer messaging network using Java, gRPC and Protobufs
