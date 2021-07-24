@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.messaging.AppTest" time="0.082" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging/target/test-classes:/home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging/target/classes:/home/christianstefaniw/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/christianstefaniw/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-netty/1.39.0/grpc-netty-1.39.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-core/1.39.0/grpc-core-1.39.0.jar:/home/christianstefaniw/.m2/repository/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar:/home/christianstefaniw/.m2/repository/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar:/home/christianstefaniw/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.19/animal-sniffer-annotations-1.19.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-codec-http2/4.1.52.Final/netty-codec-http2-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-common/4.1.52.Final/netty-common-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-buffer/4.1.52.Final/netty-buffer-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-transport/4.1.52.Final/netty-transport-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-resolver/4.1.52.Final/netty-resolver-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-codec/4.1.52.Final/netty-codec-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-handler/4.1.52.Final/netty-handler-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-codec-http/4.1.52.Final/netty-codec-http-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-handler-proxy/4.1.52.Final/netty-handler-proxy-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-codec-socks/4.1.52.Final/netty-codec-socks-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/com/google/guava/guava/30.1-android/guava-30.1-android.jar:/home/christianstefaniw/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/christianstefaniw/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/christianstefaniw/.m2/repository/org/checkerframework/checker-compat-qual/2.5.5/checker-compat-qual-2.5.5.jar:/home/christianstefaniw/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/home/christianstefaniw/.m2/repository/com/google/errorprone/error_prone_annotations/2.4.0/error_prone_annotations-2.4.0.jar:/home/christianstefaniw/.m2/repository/io/perfmark/perfmark-api/0.23.0/perfmark-api-0.23.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-protobuf/1.39.0/grpc-protobuf-1.39.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-api/1.39.0/grpc-api-1.39.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-context/1.39.0/grpc-context-1.39.0.jar:/home/christianstefaniw/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/christianstefaniw/.m2/repository/com/google/protobuf/protobuf-java/3.17.2/protobuf-java-3.17.2.jar:/home/christianstefaniw/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.0.1/proto-google-common-protos-2.0.1.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-protobuf-lite/1.39.0/grpc-protobuf-lite-1.39.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-stub/1.39.0/grpc-stub-1.39.0.jar:/home/christianstefaniw/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:"/>
+    <property name="java.vm.vendor" value="Red Hat, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://www.redhat.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CA"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-11.0.11.0.9-4.fc34.x86_64/lib"/>
+    <property name="sun.java.command" value="/home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging/target/surefire/surefirebooter548768699262135167.jar /home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging/target/surefire 2021-07-24T12-07-51_886-jvmRun1 surefire3852214349243580408tmp surefire_02510400540326400819tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging/target/test-classes:/home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging/target/classes:/home/christianstefaniw/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/christianstefaniw/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-netty/1.39.0/grpc-netty-1.39.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-core/1.39.0/grpc-core-1.39.0.jar:/home/christianstefaniw/.m2/repository/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar:/home/christianstefaniw/.m2/repository/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar:/home/christianstefaniw/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.19/animal-sniffer-annotations-1.19.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-codec-http2/4.1.52.Final/netty-codec-http2-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-common/4.1.52.Final/netty-common-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-buffer/4.1.52.Final/netty-buffer-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-transport/4.1.52.Final/netty-transport-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-resolver/4.1.52.Final/netty-resolver-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-codec/4.1.52.Final/netty-codec-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-handler/4.1.52.Final/netty-handler-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-codec-http/4.1.52.Final/netty-codec-http-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-handler-proxy/4.1.52.Final/netty-handler-proxy-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/io/netty/netty-codec-socks/4.1.52.Final/netty-codec-socks-4.1.52.Final.jar:/home/christianstefaniw/.m2/repository/com/google/guava/guava/30.1-android/guava-30.1-android.jar:/home/christianstefaniw/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/christianstefaniw/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/christianstefaniw/.m2/repository/org/checkerframework/checker-compat-qual/2.5.5/checker-compat-qual-2.5.5.jar:/home/christianstefaniw/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/home/christianstefaniw/.m2/repository/com/google/errorprone/error_prone_annotations/2.4.0/error_prone_annotations-2.4.0.jar:/home/christianstefaniw/.m2/repository/io/perfmark/perfmark-api/0.23.0/perfmark-api-0.23.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-protobuf/1.39.0/grpc-protobuf-1.39.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-api/1.39.0/grpc-api-1.39.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-context/1.39.0/grpc-context-1.39.0.jar:/home/christianstefaniw/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/christianstefaniw/.m2/repository/com/google/protobuf/protobuf-java/3.17.2/protobuf-java-3.17.2.jar:/home/christianstefaniw/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.0.1/proto-google-common-protos-2.0.1.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-protobuf-lite/1.39.0/grpc-protobuf-lite-1.39.0.jar:/home/christianstefaniw/.m2/repository/io/grpc/grpc-stub/1.39.0/grpc-stub-1.39.0.jar:/home/christianstefaniw/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/christianstefaniw"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2021-04-20"/>
+    <property name="java.home" value="/usr/lib/jvm/java-11-openjdk-11.0.11.0.9-4.fc34.x86_64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging/target/surefire/surefirebooter548768699262135167.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.11+9"/>
+    <property name="user.name" value="christianstefaniw"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.12.7-300.fc34.x86_64"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="/home/christianstefaniw/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugzilla.redhat.com/enter_bug.cgi?product=Fedora&amp;component=java-11-openjdk&amp;version=34"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="11.0.11"/>
+    <property name="user.dir" value="/home/christianstefaniw/Desktop/code/src/github.com/hci-eng/p2p-messaging"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Red Hat, Inc."/>
+    <property name="java.vm.version" value="11.0.11+9"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="com.messaging.AppTest" time="0.005"/>
+</testsuite>
