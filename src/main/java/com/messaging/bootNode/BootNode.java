@@ -16,7 +16,7 @@ public class BootNode extends BootNodeServiceImpl implements Node {
     }
 
     public void run() {
-        GrpcServer server = new GrpcBootNodeServer(this.port);
+        GrpcServer server = ServerFactory.getServer(NodeType.BOOT, this.port);
         server.run();
     }
 

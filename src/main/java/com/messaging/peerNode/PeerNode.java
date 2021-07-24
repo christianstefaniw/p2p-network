@@ -16,7 +16,7 @@ public class PeerNode extends PeerNodeServiceImpl implements Node {
     }
 
     public void run() {
-        GrpcServer server = new GrpcBootNodeServer(this.port);
+        GrpcServer server = ServerFactory.getServer(NodeType.PEER, this.port);
         server.run();
     }
 }
