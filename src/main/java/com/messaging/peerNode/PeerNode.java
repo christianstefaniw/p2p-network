@@ -1,26 +1,22 @@
 package com.messaging.peerNode;
 
-import java.util.Map;
-
 import com.messaging.node.*;
-import com.messaging.peerNode.stubs.*;
+import com.messaging.peerToPeer.*;
 
-import io.grpc.stub.StreamObserver;
+public class PeerNode extends PeerNodeServiceImpl implements Node {
+    final int port;
 
-public class PeerNode extends PeerNodeServiceGrpc.PeerNodeServiceImplBase implements Node {
-    Map<String, Boolean> peers;
+    public PeerNode(int port) {
+        this.port = port;
+    }
 
     @Override
     public NodeType whichNode() {
         return NodeType.PEER;
     }
 
-    @Override
-    public void sendMessage(MessageRequest request, StreamObserver<MessageResponse> responseObserver) {
-        MessageResponse response = MessageResponse.newBuilder().setSent(true).build();
-
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
+    public void run() {
+        GrpcServer server = new GrpcBootNodeServer(this.port);
+        server.run();
     }
-
 }
