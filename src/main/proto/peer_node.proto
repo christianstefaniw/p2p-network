@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.messaging.peerNode.stubs;
+
+
+message MessageRequest {
+    string message = 1;
+}
+
+message MessageResponse {
+    bool sent = 1;
+}
+
+service PeerNodeService {
+    rpc sendMessage(MessageRequest) returns (MessageResponse);
+}
