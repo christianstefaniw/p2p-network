@@ -8,8 +8,13 @@ import io.grpc.ManagedChannelBuilder;
 import java.util.HashMap;
 import java.util.Random;
 
-public class Bootstrap extends BootNodeServiceImpl {
-    protected void bootstrap() {
+public class BootstrappedBootNode extends BootNodeServiceImpl {
+
+    public BootstrappedBootNode() {
+        this.bootstrap();
+    }
+
+    private void bootstrap() {
         HashMap<Integer, ManagedChannel> bootNodes = this.connectToBootNodes();
         super.connectedBootNodes = bootNodes;
         super.routingArray.add(21234);

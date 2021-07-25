@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import com.messaging.bootNode.BootNode;
+import com.messaging.bootNode.BootNodeHelpers;
 import com.messaging.bootNode.stubs.*;
 import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceBlockingStub;
 import com.messaging.peerNode.stubs.RegisterPeerNodeRequest;
@@ -13,15 +13,18 @@ import com.messaging.peerNode.stubs.PeerNodeServiceGrpc.PeerNodeServiceBlockingS
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-public class Bootstrap extends PeerNodeServiceImpl {
-    private int port;
+public class BootstrappedPeerNode extends PeerNodeServiceImpl {
+    private final int port;
 
-    protected void bootstrap(int port) {
+    public BootstrappedPeerNode(int port) {
         this.port = port;
+        this.bootstrap();
+    }
 
-        ManagedChannel channel = BootNode.getRandomBootNodeChannel();
-        BootNodeServiceBlockingStub bootNodeStub = BootNode.newBlockingStub(channel);
-        BootstrapPeerNodeRequest request = BootstrapPeerNodeRequest.newBuilder().setPort(port).build();
+    private void bootstrap() {
+        ManagedChannel channel = BootNodeHelpers.getRandomBootNodeChannel();
+        BootNodeServiceBlockingStub bootNodeStub = BootNodeHelpers.newBlockingStub(channel);
+        BootstrapPeerNodeRequest request = BootstrapPeerNodeRequest.newBuilder().setPort(this.port).build();
         BootstrapPeerNodeResponse response = bootNodeStub.bootstrapPeerNode(request);
         channel.shutdown();
 
@@ -52,7 +55,7 @@ public class Bootstrap extends PeerNodeServiceImpl {
     private void registerToConnectedPeerNode(ManagedChannel channel) {
         RegisterPeerNodeRequest request = RegisterPeerNodeRequest.newBuilder().setPort(this.port).build();
 
-        PeerNodeServiceBlockingStub peerNodeStub = PeerNode.newBlockingStub(channel);
+        PeerNodeServiceBlockingStub peerNodeStub = PeerNodeHelpers.newBlockingStub(channel);
         peerNodeStub.registerPeerNode(request);
     }
 }
