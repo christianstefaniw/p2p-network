@@ -16,7 +16,7 @@ public class PeerNode extends Bootstrap implements Node {
 
     public PeerNode(int port) {
         this.port = port;
-        this.bootstrap(port);
+        super.bootstrap(port);
     }
 
     @Override
@@ -25,11 +25,11 @@ public class PeerNode extends Bootstrap implements Node {
     }
 
     public boolean sendMessage(String message, int sendToPort) {
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", sendToPort).usePlaintext().build();
+        ManagedChannel channel = Helpers.getManagedChannel(sendToPort);
 
-        PeerNodeServiceGrpc.PeerNodeServiceBlockingStub peerNode = PeerNode.blockingStubFromManagedChannel(channel);
+        PeerNodeServiceBlockingStub peerNodeStub = PeerNode.newBlockingStub(channel);
 
-        MessageResponse response = peerNode.sendMessage(MessageRequest.newBuilder().setMessage(message).build());
+        MessageResponse response = peerNodeStub.sendMessage(MessageRequest.newBuilder().setMessage(message).build());
         channel.shutdown();
 
         return response.getSent();
@@ -40,7 +40,7 @@ public class PeerNode extends Bootstrap implements Node {
         server.run();
     }
 
-    public static PeerNodeServiceBlockingStub blockingStubFromManagedChannel(ManagedChannel channel) {
+    public static PeerNodeServiceBlockingStub newBlockingStub(ManagedChannel channel) {
         return PeerNodeServiceGrpc.newBlockingStub(channel);
     }
 }

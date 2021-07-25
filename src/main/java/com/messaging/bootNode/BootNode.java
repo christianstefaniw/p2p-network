@@ -32,18 +32,15 @@ public class BootNode extends Bootstrap implements Node {
         server.run();
     }
 
-    public static BootNodeServiceBlockingStub blockingStubFromManagedChannel(ManagedChannel channel) {
+    public static BootNodeServiceBlockingStub newBlockingStub(ManagedChannel channel) {
         return BootNodeServiceGrpc.newBlockingStub(channel);
     }
 
     public static ManagedChannel getRandomBootNodeChannel() {
         Random rand = new Random();
+        int port = Constants.BOOT_NODE_ADDRESSES[rand.nextInt(Constants.BOOT_NODE_ADDRESSES.length)];
 
-        ManagedChannel channel = ManagedChannelBuilder
-                .forAddress("localhost",
-                        Constants.BOOT_NODE_ADDRESSES[rand.nextInt(Constants.BOOT_NODE_ADDRESSES.length)])
-                .usePlaintext().build();
-
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8080).usePlaintext().build();
         return channel;
     }
 }

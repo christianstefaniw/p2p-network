@@ -11,6 +11,15 @@ message MessageResponse {
     bool sent = 1;
 }
 
+message RegisterPeerNodeRequest {
+    uint32 port = 1;
+}
+
+message RegisterPeerNodeResponse {
+    bool registered = 1;
+}
+
 service PeerNodeService {
     rpc sendMessage(MessageRequest) returns (MessageResponse);
+    rpc registerPeerNode(RegisterPeerNodeRequest) returns (RegisterPeerNodeResponse);
 }

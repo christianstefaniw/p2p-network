@@ -39,6 +39,18 @@ public final class PeerNodeServiceGrpc {
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               com.messaging.peerNode.stubs.MessageResponse.getDefaultInstance()))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.messaging.peerNode.stubs.RegisterPeerNodeRequest,
+      com.messaging.peerNode.stubs.RegisterPeerNodeResponse> METHOD_REGISTER_PEER_NODE =
+      io.grpc.MethodDescriptor.<com.messaging.peerNode.stubs.RegisterPeerNodeRequest, com.messaging.peerNode.stubs.RegisterPeerNodeResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "com.messaging.peerNode.stubs.PeerNodeService", "registerPeerNode"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.messaging.peerNode.stubs.RegisterPeerNodeRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.messaging.peerNode.stubs.RegisterPeerNodeResponse.getDefaultInstance()))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -74,6 +86,13 @@ public final class PeerNodeServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_SEND_MESSAGE, responseObserver);
     }
 
+    /**
+     */
+    public void registerPeerNode(com.messaging.peerNode.stubs.RegisterPeerNodeRequest request,
+        io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.RegisterPeerNodeResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_REGISTER_PEER_NODE, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -83,6 +102,13 @@ public final class PeerNodeServiceGrpc {
                 com.messaging.peerNode.stubs.MessageRequest,
                 com.messaging.peerNode.stubs.MessageResponse>(
                   this, METHODID_SEND_MESSAGE)))
+          .addMethod(
+            METHOD_REGISTER_PEER_NODE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.messaging.peerNode.stubs.RegisterPeerNodeRequest,
+                com.messaging.peerNode.stubs.RegisterPeerNodeResponse>(
+                  this, METHODID_REGISTER_PEER_NODE)))
           .build();
     }
   }
@@ -112,6 +138,14 @@ public final class PeerNodeServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_SEND_MESSAGE, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void registerPeerNode(com.messaging.peerNode.stubs.RegisterPeerNodeRequest request,
+        io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.RegisterPeerNodeResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_REGISTER_PEER_NODE, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -137,6 +171,13 @@ public final class PeerNodeServiceGrpc {
     public com.messaging.peerNode.stubs.MessageResponse sendMessage(com.messaging.peerNode.stubs.MessageRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_SEND_MESSAGE, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.messaging.peerNode.stubs.RegisterPeerNodeResponse registerPeerNode(com.messaging.peerNode.stubs.RegisterPeerNodeRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_REGISTER_PEER_NODE, getCallOptions(), request);
     }
   }
 
@@ -165,9 +206,18 @@ public final class PeerNodeServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_SEND_MESSAGE, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.messaging.peerNode.stubs.RegisterPeerNodeResponse> registerPeerNode(
+        com.messaging.peerNode.stubs.RegisterPeerNodeRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_REGISTER_PEER_NODE, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SEND_MESSAGE = 0;
+  private static final int METHODID_REGISTER_PEER_NODE = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -189,6 +239,10 @@ public final class PeerNodeServiceGrpc {
         case METHODID_SEND_MESSAGE:
           serviceImpl.sendMessage((com.messaging.peerNode.stubs.MessageRequest) request,
               (io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.MessageResponse>) responseObserver);
+          break;
+        case METHODID_REGISTER_PEER_NODE:
+          serviceImpl.registerPeerNode((com.messaging.peerNode.stubs.RegisterPeerNodeRequest) request,
+              (io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.RegisterPeerNodeResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -224,6 +278,7 @@ public final class PeerNodeServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PeerNodeServiceDescriptorSupplier())
               .addMethod(METHOD_SEND_MESSAGE)
+              .addMethod(METHOD_REGISTER_PEER_NODE)
               .build();
         }
       }

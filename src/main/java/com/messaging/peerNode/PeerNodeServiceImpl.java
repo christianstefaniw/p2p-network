@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.messaging.peerNode.stubs.*;
 import com.messaging.peerNode.stubs.PeerNodeServiceGrpc.*;
+import com.messaging.peerToPeer.Helpers;
 
 import io.grpc.stub.StreamObserver;
 import io.grpc.ManagedChannel;
@@ -20,4 +21,11 @@ public class PeerNodeServiceImpl extends PeerNodeServiceImplBase {
         responseObserver.onCompleted();
     }
 
+    @Override
+    public void registerPeerNode(RegisterPeerNodeRequest request,
+            StreamObserver<RegisterPeerNodeResponse> responseObserver) {
+        int newPeerNodePort = request.getPort();
+        ManagedChannel channel = Helpers.getManagedChannel(newPeerNodePort);
+        this.connectedPeerNodes.put(newPeerNodePort, channel);
+    }
 }

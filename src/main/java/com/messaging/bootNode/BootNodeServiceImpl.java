@@ -9,8 +9,8 @@ import io.grpc.ManagedChannel;
 import io.grpc.stub.StreamObserver;
 
 public class BootNodeServiceImpl extends BootNodeServiceImplBase {
-    protected ArrayList<Integer> routingArray;
-    protected Map<Integer, ManagedChannel> connectedBootNodes;
+    protected ArrayList<Integer> routingArray = new ArrayList<Integer>();
+    protected HashMap<Integer, ManagedChannel> connectedBootNodes = new HashMap<Integer, ManagedChannel>();
 
     @Override
     public void getRoutingArray(GetRoutingArrayRequest request,
@@ -34,25 +34,26 @@ public class BootNodeServiceImpl extends BootNodeServiceImplBase {
     @Override
     public void bootstrapPeerNode(BootstrapPeerNodeRequest request,
             StreamObserver<BootstrapPeerNodeResponse> responseObserver) {
-        ArrayList<Integer> randomPeerAddresses = this.getRandomPeerAddresses(5);
+        ArrayList<Integer> randomPeerPorts = this.getRandomPeerPorts(5);
 
-        BootstrapPeerNodeResponse response = BootstrapPeerNodeResponse.newBuilder()
-                .addAllRoutingArray(randomPeerAddresses).build();
+        this.routingArray.add(request.getPort());
 
+        BootstrapPeerNodeResponse response = BootstrapPeerNodeResponse.newBuilder().addAllRoutingArray(randomPeerPorts)
+                .build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
-
     }
 
-    private ArrayList<Integer> getRandomPeerAddresses(int numValues) {
+    private ArrayList<Integer> getRandomPeerPorts(int numValues) {
         Random rand = new Random();
         ArrayList<Integer> peerAddresses = new ArrayList<Integer>();
 
         for (int i = 0; i < numValues; i++) {
-            if (i > this.routingArray.size())
+            if (i > this.routingArray.size() - 1 || this.routingArray.size() == 0)
                 break;
-            peerAddresses.add(this.routingArray.get(rand.nextInt()));
+            peerAddresses.add(this.routingArray.get(rand.nextInt(this.routingArray.size())));
         }
+
         return peerAddresses;
     }
 }

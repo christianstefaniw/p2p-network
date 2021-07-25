@@ -24,6 +24,16 @@ public final class PeerNode {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_messaging_peerNode_stubs_MessageResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -35,11 +45,16 @@ public final class PeerNode {
     java.lang.String[] descriptorData = {
       "\n\017peer_node.proto\022\034com.messaging.peerNod" +
       "e.stubs\"!\n\016MessageRequest\022\017\n\007message\030\001 \001" +
-      "(\t\"\037\n\017MessageResponse\022\014\n\004sent\030\001 \001(\0102}\n\017P" +
-      "eerNodeService\022j\n\013sendMessage\022,.com.mess" +
-      "aging.peerNode.stubs.MessageRequest\032-.co" +
-      "m.messaging.peerNode.stubs.MessageRespon" +
-      "seB\002P\001b\006proto3"
+      "(\t\"\037\n\017MessageResponse\022\014\n\004sent\030\001 \001(\010\"\'\n\027R" +
+      "egisterPeerNodeRequest\022\014\n\004port\030\001 \001(\r\".\n\030" +
+      "RegisterPeerNodeResponse\022\022\n\nregistered\030\001" +
+      " \001(\0102\201\002\n\017PeerNodeService\022j\n\013sendMessage\022" +
+      ",.com.messaging.peerNode.stubs.MessageRe" +
+      "quest\032-.com.messaging.peerNode.stubs.Mes" +
+      "sageResponse\022\201\001\n\020registerPeerNode\0225.com." +
+      "messaging.peerNode.stubs.RegisterPeerNod",
+      "eRequest\0326.com.messaging.peerNode.stubs." +
+      "RegisterPeerNodeResponseB\002P\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -65,6 +80,18 @@ public final class PeerNode {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_messaging_peerNode_stubs_MessageResponse_descriptor,
         new java.lang.String[] { "Sent", });
+    internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeRequest_descriptor,
+        new java.lang.String[] { "Port", });
+    internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_messaging_peerNode_stubs_RegisterPeerNodeResponse_descriptor,
+        new java.lang.String[] { "Registered", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
