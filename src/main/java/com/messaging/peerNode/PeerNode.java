@@ -1,13 +1,5 @@
 package com.messaging.peerNode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-
-import com.messaging.bootNode.BootNode;
-import com.messaging.bootNode.stubs.*;
-import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceBlockingStub;
 import com.messaging.node.*;
 import com.messaging.peerNode.stubs.*;
 import com.messaging.peerNode.stubs.PeerNodeServiceGrpc.PeerNodeServiceBlockingStub;
@@ -35,7 +27,7 @@ public class PeerNode extends Bootstrap implements Node {
     public boolean sendMessage(String message, int sendToPort) {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", sendToPort).usePlaintext().build();
 
-        PeerNodeServiceGrpc.PeerNodeServiceBlockingStub peerNode = PeerNodeServiceGrpc.newBlockingStub(channel);
+        PeerNodeServiceGrpc.PeerNodeServiceBlockingStub peerNode = PeerNode.blockingStubFromManagedChannel(channel);
 
         MessageResponse response = peerNode.sendMessage(MessageRequest.newBuilder().setMessage(message).build());
         channel.shutdown();
@@ -46,5 +38,9 @@ public class PeerNode extends Bootstrap implements Node {
     public void run() {
         GrpcServer server = ServerFactory.getServer(NodeType.PEER, this.port);
         server.run();
+    }
+
+    public static PeerNodeServiceBlockingStub blockingStubFromManagedChannel(ManagedChannel channel) {
+        return PeerNodeServiceGrpc.newBlockingStub(channel);
     }
 }

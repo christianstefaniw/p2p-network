@@ -1,6 +1,6 @@
 package com.messaging.peerNode;
 
-import java.util.Map;
+import java.util.HashMap;
 
 import com.messaging.peerNode.stubs.*;
 import com.messaging.peerNode.stubs.PeerNodeServiceGrpc.*;
@@ -9,7 +9,7 @@ import io.grpc.stub.StreamObserver;
 import io.grpc.ManagedChannel;
 
 public class PeerNodeServiceImpl extends PeerNodeServiceImplBase {
-    protected Map<PeerNodeServiceBlockingStub, ManagedChannel> connectedPeerNodes;
+    protected HashMap<Integer, ManagedChannel> connectedPeerNodes;
 
     @Override
     public void sendMessage(MessageRequest request, StreamObserver<MessageResponse> responseObserver) {

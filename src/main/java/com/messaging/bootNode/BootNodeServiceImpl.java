@@ -3,7 +3,6 @@ package com.messaging.bootNode;
 import java.util.*;
 
 import com.messaging.bootNode.stubs.*;
-import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceBlockingStub;
 import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceImplBase;
 
 import io.grpc.ManagedChannel;
@@ -11,7 +10,7 @@ import io.grpc.stub.StreamObserver;
 
 public class BootNodeServiceImpl extends BootNodeServiceImplBase {
     protected ArrayList<Integer> routingArray;
-    protected Map<BootNodeServiceBlockingStub, ManagedChannel> connectedBootNodes;
+    protected Map<Integer, ManagedChannel> connectedBootNodes;
 
     @Override
     public void getRoutingArray(GetRoutingArrayRequest request,

@@ -7,8 +7,6 @@ import java.util.Random;
 import com.messaging.bootNode.BootNode;
 import com.messaging.bootNode.stubs.*;
 import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceBlockingStub;
-import com.messaging.peerNode.stubs.PeerNodeServiceGrpc;
-import com.messaging.peerNode.stubs.PeerNodeServiceGrpc.PeerNodeServiceBlockingStub;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -16,8 +14,7 @@ import io.grpc.ManagedChannelBuilder;
 public class Bootstrap extends PeerNodeServiceImpl {
     protected void bootstrap(int port) {
         ManagedChannel channel = BootNode.getRandomBootNodeChannel();
-        BootNodeServiceBlockingStub bootNode = BootNodeServiceGrpc.newBlockingStub(channel);
-
+        BootNodeServiceBlockingStub bootNode = BootNode.blockingStubFromManagedChannel(channel);
         BootstrapPeerNodeRequest request = BootstrapPeerNodeRequest.newBuilder().setPort(port).build();
         BootstrapPeerNodeResponse response = bootNode.bootstrapPeerNode(request);
 
@@ -26,20 +23,16 @@ public class Bootstrap extends PeerNodeServiceImpl {
         this.connectedPeerNodes = this.dialPeerNodes(new ArrayList<Integer>(response.getRoutingArrayList()), 5);
     }
 
-    private HashMap<PeerNodeServiceBlockingStub, ManagedChannel> dialPeerNodes(ArrayList<Integer> routingArray,
-            int numOfNodes) {
-        HashMap<PeerNodeServiceBlockingStub, ManagedChannel> peerNodesAndChannels = new HashMap<PeerNodeServiceBlockingStub, ManagedChannel>();
+    private HashMap<Integer, ManagedChannel> dialPeerNodes(ArrayList<Integer> routingArray, int numOfNodes) {
+        HashMap<Integer, ManagedChannel> connectedPeerNodes = new HashMap<Integer, ManagedChannel>();
         Random rand = new Random();
 
         for (int i = 0; i < numOfNodes; i++) {
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", routingArray.get(rand.nextInt()))
-                    .usePlaintext().build();
-
-            PeerNodeServiceBlockingStub peerNode = PeerNodeServiceGrpc.newBlockingStub(channel);
-
-            peerNodesAndChannels.put(peerNode, channel);
+            int port = routingArray.get(rand.nextInt());
+            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", port).usePlaintext().build();
+            connectedPeerNodes.put(port, channel);
         }
 
-        return peerNodesAndChannels;
+        return connectedPeerNodes;
     }
 }
