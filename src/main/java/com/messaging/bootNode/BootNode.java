@@ -1,11 +1,11 @@
 package com.messaging.bootNode;
 
 import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceBlockingStub;
+import com.messaging.constants.Constants;
 
 import java.util.*;
 
 import com.messaging.bootNode.stubs.*;
-import com.messaging.contants.Constants;
 import com.messaging.node.*;
 import com.messaging.peerToPeer.*;
 
@@ -16,7 +16,6 @@ public class BootNode extends BootNodeServiceImpl implements Node {
 
     public BootNode() {
         this.port = 0;
-        this.connectedBootNodes = null;
     }
 
     public BootNode(int port) {
@@ -25,7 +24,13 @@ public class BootNode extends BootNodeServiceImpl implements Node {
     }
 
     private void bootstrap() {
+        Map<BootNodeServiceBlockingStub, ManagedChannel> bootNodes = this.connectToBootNodes();
+        this.connectedBootNodes = bootNodes;
+    }
+
+    private Map<BootNodeServiceBlockingStub, ManagedChannel> connectToBootNodes() {
         Random rand = new Random();
+
         Map<BootNodeServiceBlockingStub, ManagedChannel> bootNodes = new HashMap<BootNodeServiceBlockingStub, ManagedChannel>();
 
         for (int i = 0; i < Constants.BOOT_NODE_ADDRESSES.length; i++) {
@@ -35,7 +40,7 @@ public class BootNode extends BootNodeServiceImpl implements Node {
             bootNodes.put(bootNode, channel);
         }
 
-        this.connectedBootNodes = bootNodes;
+        return bootNodes;
     }
 
     @Override
