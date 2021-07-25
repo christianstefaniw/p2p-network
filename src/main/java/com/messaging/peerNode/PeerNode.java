@@ -14,7 +14,8 @@ import com.messaging.peerNode.stubs.PeerNodeServiceGrpc.PeerNodeServiceBlockingS
 import com.messaging.peerToPeer.*;
 
 import io.grpc.*;
-public class PeerNode extends PeerNodeServiceImpl implements Node {
+
+public class PeerNode extends Bootstrap implements Node {
     final int port;
 
     public PeerNode() {
@@ -23,36 +24,7 @@ public class PeerNode extends PeerNodeServiceImpl implements Node {
 
     public PeerNode(int port) {
         this.port = port;
-        this.bootstrap();
-    }
-
-    private void bootstrap() {
-        ManagedChannel channel = BootNode.getRandomBootNodeChannel();
-        BootNodeServiceBlockingStub bootNode = BootNodeServiceGrpc.newBlockingStub(channel);
-
-        BootstrapPeerNodeRequest request = BootstrapPeerNodeRequest.newBuilder().setPort(port).build();
-        BootstrapPeerNodeResponse response = bootNode.bootstrapPeerNode(request);
-
-        channel.shutdown();
-
-        this.connectedPeerNodes = this.dialPeerNodes(new ArrayList<Integer>(response.getRoutingArrayList()), 5);
-    }
-
-    private Map<PeerNodeServiceBlockingStub, ManagedChannel> dialPeerNodes(ArrayList<Integer> routingArray,
-            int numOfNodes) {
-        Map<PeerNodeServiceBlockingStub, ManagedChannel> peerNodesAndChannels = new HashMap<PeerNodeServiceBlockingStub, ManagedChannel>();
-        Random rand = new Random();
-
-        for (int i = 0; i < numOfNodes; i++) {
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", routingArray.get(rand.nextInt()))
-                    .usePlaintext().build();
-
-            PeerNodeServiceBlockingStub peerNode = PeerNodeServiceGrpc.newBlockingStub(channel);
-
-            peerNodesAndChannels.put(peerNode, channel);
-        }
-
-        return peerNodesAndChannels;
+        this.bootstrap(port);
     }
 
     @Override

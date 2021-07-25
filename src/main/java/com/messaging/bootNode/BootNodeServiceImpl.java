@@ -4,11 +4,12 @@ import java.util.*;
 
 import com.messaging.bootNode.stubs.*;
 import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceBlockingStub;
+import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceImplBase;
 
 import io.grpc.ManagedChannel;
 import io.grpc.stub.StreamObserver;
 
-public class BootNodeServiceImpl extends BootNodeServiceGrpc.BootNodeServiceImplBase {
+public class BootNodeServiceImpl extends BootNodeServiceImplBase {
     protected ArrayList<Integer> routingArray;
     protected Map<BootNodeServiceBlockingStub, ManagedChannel> connectedBootNodes;
 
