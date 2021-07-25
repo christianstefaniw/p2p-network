@@ -34,6 +34,8 @@ public class BootNodeServiceImpl extends BootNodeServiceImplBase {
     @Override
     public void bootstrapPeerNode(BootstrapPeerNodeRequest request,
             StreamObserver<BootstrapPeerNodeResponse> responseObserver) {
+                
+        System.out.println(this.routingArray);
         ArrayList<Integer> randomPeerPorts = this.getRandomPeerPorts(5);
 
         this.routingArray.add(request.getPort());

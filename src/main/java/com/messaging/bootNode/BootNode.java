@@ -13,13 +13,9 @@ import io.grpc.*;
 public class BootNode extends Bootstrap implements Node {
     final int port;
 
-    public BootNode() {
-        this.port = 0;
-    }
-
     public BootNode(int port) {
         this.port = port;
-        this.bootstrap();
+        super.bootstrap();
     }
 
     @Override

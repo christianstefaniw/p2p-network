@@ -2,11 +2,7 @@ package com.messaging.peerToPeer;
 
 import java.io.IOException;
 
-import com.messaging.bootNode.BootNodeServiceImpl;
-import com.messaging.peerNode.PeerNodeServiceImpl;
-
 import io.grpc.Server;
-import io.grpc.ServerBuilder;
 
 public abstract class GrpcServer {
     final int port;
@@ -15,9 +11,11 @@ public abstract class GrpcServer {
         this.port = port;
     }
 
+    abstract protected Server getServer();
+
     public void run() {
-        Server server = ServerBuilder.forPort(this.port).addService(new BootNodeServiceImpl())
-                .addService(new PeerNodeServiceImpl()).build();
+        Server server = this.getServer();
+
         try {
             server.start();
             System.out.printf("started the server succesfully on port: %s\n", this.port);

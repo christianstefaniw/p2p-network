@@ -10,10 +10,6 @@ import io.grpc.*;
 public class PeerNode extends Bootstrap implements Node {
     final int port;
 
-    public PeerNode() {
-        this.port = 0;
-    }
-
     public PeerNode(int port) {
         this.port = port;
         super.bootstrap(port);

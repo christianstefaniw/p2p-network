@@ -11,7 +11,8 @@ import java.util.Random;
 public class Bootstrap extends BootNodeServiceImpl {
     protected void bootstrap() {
         HashMap<Integer, ManagedChannel> bootNodes = this.connectToBootNodes();
-        this.connectedBootNodes = bootNodes;
+        super.connectedBootNodes = bootNodes;
+        super.routingArray.add(21234);
     }
 
     private HashMap<Integer, ManagedChannel> connectToBootNodes() {
