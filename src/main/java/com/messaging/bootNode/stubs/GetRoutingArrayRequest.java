@@ -4,18 +4,17 @@
 package com.messaging.bootNode.stubs;
 
 /**
- * Protobuf type {@code com.messaging.bootNode.stubs.BootstrapBootNodeRequest}
+ * Protobuf type {@code com.messaging.bootNode.stubs.GetRoutingArrayRequest}
  */
-public  final class BootstrapBootNodeRequest extends
+public  final class GetRoutingArrayRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.messaging.bootNode.stubs.BootstrapBootNodeRequest)
-    BootstrapBootNodeRequestOrBuilder {
-  // Use BootstrapBootNodeRequest.newBuilder() to construct.
-  private BootstrapBootNodeRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:com.messaging.bootNode.stubs.GetRoutingArrayRequest)
+    GetRoutingArrayRequestOrBuilder {
+  // Use GetRoutingArrayRequest.newBuilder() to construct.
+  private GetRoutingArrayRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private BootstrapBootNodeRequest() {
-    port_ = 0;
+  private GetRoutingArrayRequest() {
   }
 
   @java.lang.Override
@@ -23,12 +22,11 @@ public  final class BootstrapBootNodeRequest extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private BootstrapBootNodeRequest(
+  private GetRoutingArrayRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    int mutable_bitField0_ = 0;
     try {
       boolean done = false;
       while (!done) {
@@ -41,11 +39,6 @@ public  final class BootstrapBootNodeRequest extends
             if (!input.skipField(tag)) {
               done = true;
             }
-            break;
-          }
-          case 8: {
-
-            port_ = input.readUInt32();
             break;
           }
         }
@@ -61,23 +54,14 @@ public  final class BootstrapBootNodeRequest extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapBootNodeRequest_descriptor;
+    return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapBootNodeRequest_fieldAccessorTable
+    return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.messaging.bootNode.stubs.BootstrapBootNodeRequest.class, com.messaging.bootNode.stubs.BootstrapBootNodeRequest.Builder.class);
-  }
-
-  public static final int PORT_FIELD_NUMBER = 1;
-  private int port_;
-  /**
-   * <code>uint32 port = 1;</code>
-   */
-  public int getPort() {
-    return port_;
+            com.messaging.bootNode.stubs.GetRoutingArrayRequest.class, com.messaging.bootNode.stubs.GetRoutingArrayRequest.Builder.class);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -92,9 +76,6 @@ public  final class BootstrapBootNodeRequest extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (port_ != 0) {
-      output.writeUInt32(1, port_);
-    }
   }
 
   public int getSerializedSize() {
@@ -102,10 +83,6 @@ public  final class BootstrapBootNodeRequest extends
     if (size != -1) return size;
 
     size = 0;
-    if (port_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(1, port_);
-    }
     memoizedSize = size;
     return size;
   }
@@ -116,14 +93,12 @@ public  final class BootstrapBootNodeRequest extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.messaging.bootNode.stubs.BootstrapBootNodeRequest)) {
+    if (!(obj instanceof com.messaging.bootNode.stubs.GetRoutingArrayRequest)) {
       return super.equals(obj);
     }
-    com.messaging.bootNode.stubs.BootstrapBootNodeRequest other = (com.messaging.bootNode.stubs.BootstrapBootNodeRequest) obj;
+    com.messaging.bootNode.stubs.GetRoutingArrayRequest other = (com.messaging.bootNode.stubs.GetRoutingArrayRequest) obj;
 
     boolean result = true;
-    result = result && (getPort()
-        == other.getPort());
     return result;
   }
 
@@ -134,76 +109,74 @@ public  final class BootstrapBootNodeRequest extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PORT_FIELD_NUMBER;
-    hash = (53 * hash) + getPort();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(byte[] data)
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(java.io.InputStream input)
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseDelimitedFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest parseFrom(
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -215,7 +188,7 @@ public  final class BootstrapBootNodeRequest extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.messaging.bootNode.stubs.BootstrapBootNodeRequest prototype) {
+  public static Builder newBuilder(com.messaging.bootNode.stubs.GetRoutingArrayRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -230,25 +203,25 @@ public  final class BootstrapBootNodeRequest extends
     return builder;
   }
   /**
-   * Protobuf type {@code com.messaging.bootNode.stubs.BootstrapBootNodeRequest}
+   * Protobuf type {@code com.messaging.bootNode.stubs.GetRoutingArrayRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.messaging.bootNode.stubs.BootstrapBootNodeRequest)
-      com.messaging.bootNode.stubs.BootstrapBootNodeRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.messaging.bootNode.stubs.GetRoutingArrayRequest)
+      com.messaging.bootNode.stubs.GetRoutingArrayRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapBootNodeRequest_descriptor;
+      return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapBootNodeRequest_fieldAccessorTable
+      return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.messaging.bootNode.stubs.BootstrapBootNodeRequest.class, com.messaging.bootNode.stubs.BootstrapBootNodeRequest.Builder.class);
+              com.messaging.bootNode.stubs.GetRoutingArrayRequest.class, com.messaging.bootNode.stubs.GetRoutingArrayRequest.Builder.class);
     }
 
-    // Construct using com.messaging.bootNode.stubs.BootstrapBootNodeRequest.newBuilder()
+    // Construct using com.messaging.bootNode.stubs.GetRoutingArrayRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -265,31 +238,28 @@ public  final class BootstrapBootNodeRequest extends
     }
     public Builder clear() {
       super.clear();
-      port_ = 0;
-
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapBootNodeRequest_descriptor;
+      return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_descriptor;
     }
 
-    public com.messaging.bootNode.stubs.BootstrapBootNodeRequest getDefaultInstanceForType() {
-      return com.messaging.bootNode.stubs.BootstrapBootNodeRequest.getDefaultInstance();
+    public com.messaging.bootNode.stubs.GetRoutingArrayRequest getDefaultInstanceForType() {
+      return com.messaging.bootNode.stubs.GetRoutingArrayRequest.getDefaultInstance();
     }
 
-    public com.messaging.bootNode.stubs.BootstrapBootNodeRequest build() {
-      com.messaging.bootNode.stubs.BootstrapBootNodeRequest result = buildPartial();
+    public com.messaging.bootNode.stubs.GetRoutingArrayRequest build() {
+      com.messaging.bootNode.stubs.GetRoutingArrayRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.messaging.bootNode.stubs.BootstrapBootNodeRequest buildPartial() {
-      com.messaging.bootNode.stubs.BootstrapBootNodeRequest result = new com.messaging.bootNode.stubs.BootstrapBootNodeRequest(this);
-      result.port_ = port_;
+    public com.messaging.bootNode.stubs.GetRoutingArrayRequest buildPartial() {
+      com.messaging.bootNode.stubs.GetRoutingArrayRequest result = new com.messaging.bootNode.stubs.GetRoutingArrayRequest(this);
       onBuilt();
       return result;
     }
@@ -321,19 +291,16 @@ public  final class BootstrapBootNodeRequest extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.messaging.bootNode.stubs.BootstrapBootNodeRequest) {
-        return mergeFrom((com.messaging.bootNode.stubs.BootstrapBootNodeRequest)other);
+      if (other instanceof com.messaging.bootNode.stubs.GetRoutingArrayRequest) {
+        return mergeFrom((com.messaging.bootNode.stubs.GetRoutingArrayRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.messaging.bootNode.stubs.BootstrapBootNodeRequest other) {
-      if (other == com.messaging.bootNode.stubs.BootstrapBootNodeRequest.getDefaultInstance()) return this;
-      if (other.getPort() != 0) {
-        setPort(other.getPort());
-      }
+    public Builder mergeFrom(com.messaging.bootNode.stubs.GetRoutingArrayRequest other) {
+      if (other == com.messaging.bootNode.stubs.GetRoutingArrayRequest.getDefaultInstance()) return this;
       onChanged();
       return this;
     }
@@ -346,43 +313,17 @@ public  final class BootstrapBootNodeRequest extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.messaging.bootNode.stubs.BootstrapBootNodeRequest parsedMessage = null;
+      com.messaging.bootNode.stubs.GetRoutingArrayRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.messaging.bootNode.stubs.BootstrapBootNodeRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.messaging.bootNode.stubs.GetRoutingArrayRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
           mergeFrom(parsedMessage);
         }
       }
-      return this;
-    }
-
-    private int port_ ;
-    /**
-     * <code>uint32 port = 1;</code>
-     */
-    public int getPort() {
-      return port_;
-    }
-    /**
-     * <code>uint32 port = 1;</code>
-     */
-    public Builder setPort(int value) {
-      
-      port_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint32 port = 1;</code>
-     */
-    public Builder clearPort() {
-      
-      port_ = 0;
-      onChanged();
       return this;
     }
     public final Builder setUnknownFields(
@@ -396,39 +337,39 @@ public  final class BootstrapBootNodeRequest extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.messaging.bootNode.stubs.BootstrapBootNodeRequest)
+    // @@protoc_insertion_point(builder_scope:com.messaging.bootNode.stubs.GetRoutingArrayRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:com.messaging.bootNode.stubs.BootstrapBootNodeRequest)
-  private static final com.messaging.bootNode.stubs.BootstrapBootNodeRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.messaging.bootNode.stubs.GetRoutingArrayRequest)
+  private static final com.messaging.bootNode.stubs.GetRoutingArrayRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.messaging.bootNode.stubs.BootstrapBootNodeRequest();
+    DEFAULT_INSTANCE = new com.messaging.bootNode.stubs.GetRoutingArrayRequest();
   }
 
-  public static com.messaging.bootNode.stubs.BootstrapBootNodeRequest getDefaultInstance() {
+  public static com.messaging.bootNode.stubs.GetRoutingArrayRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<BootstrapBootNodeRequest>
-      PARSER = new com.google.protobuf.AbstractParser<BootstrapBootNodeRequest>() {
-    public BootstrapBootNodeRequest parsePartialFrom(
+  private static final com.google.protobuf.Parser<GetRoutingArrayRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GetRoutingArrayRequest>() {
+    public GetRoutingArrayRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BootstrapBootNodeRequest(input, extensionRegistry);
+        return new GetRoutingArrayRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<BootstrapBootNodeRequest> parser() {
+  public static com.google.protobuf.Parser<GetRoutingArrayRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<BootstrapBootNodeRequest> getParserForType() {
+  public com.google.protobuf.Parser<GetRoutingArrayRequest> getParserForType() {
     return PARSER;
   }
 
-  public com.messaging.bootNode.stubs.BootstrapBootNodeRequest getDefaultInstanceForType() {
+  public com.messaging.bootNode.stubs.GetRoutingArrayRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

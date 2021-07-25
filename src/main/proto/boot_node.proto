@@ -3,21 +3,26 @@ option java_multiple_files = true;
 package com.messaging.bootNode.stubs;
 
 message BootstrapBootNodeRequest {
-    string addr = 1;
+    uint32 port = 1;
 }
 message BootstrapBootNodeResponse {
-    map<string, bool> routingTable = 1;
+    repeated uint32 routingArray = 1;
 }
 
 message BootstrapPeerNodeRequest {
-    string addr = 1;
+    uint32 port = 1;
+}
+message BootstrapPeerNodeResponse {
+    repeated uint32 routingArray = 1;
 }
 
-message BootstrapPeerNodeResponse {
-    map<string, bool> routingTable = 1;
+message GetRoutingArrayRequest {}
+message GetRoutingArrayResponse {
+    repeated uint32 routingArray = 1;
 }
 
 service BootNodeService {
     rpc bootstrapBootNode(BootstrapBootNodeRequest) returns (BootstrapBootNodeResponse);
     rpc bootstrapPeerNode(BootstrapPeerNodeRequest) returns (BootstrapPeerNodeResponse);
+    rpc getRoutingArray(GetRoutingArrayRequest) returns (GetRoutingArrayResponse);
 }

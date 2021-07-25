@@ -1,10 +1,10 @@
 package com.messaging;
 
-import com.messaging.bootNode.BootNode;
+import com.messaging.node.*;
 
 public class BootNodeApp {
     public static void main(String[] args) {
-        BootNode bootNode = new BootNode(8085);
+        Node bootNode = NodeFactory.getNode(NodeType.BOOT, 8080);
         bootNode.run();
     }
 }

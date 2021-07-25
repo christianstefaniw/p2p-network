@@ -3,17 +3,30 @@ package com.messaging.bootNode;
 import java.util.*;
 
 import com.messaging.bootNode.stubs.*;
+import com.messaging.bootNode.stubs.BootNodeServiceGrpc.BootNodeServiceBlockingStub;
 
+import io.grpc.ManagedChannel;
 import io.grpc.stub.StreamObserver;
 
 public class BootNodeServiceImpl extends BootNodeServiceGrpc.BootNodeServiceImplBase {
-    Map<String, Boolean> routingTable;
+    protected ArrayList<Integer> routingArray;
+    protected Map<BootNodeServiceBlockingStub, ManagedChannel> connectedBootNodes;
+
+    @Override
+    public void getRoutingArray(GetRoutingArrayRequest request,
+            StreamObserver<GetRoutingArrayResponse> responseObserver) {
+        GetRoutingArrayResponse response = GetRoutingArrayResponse.newBuilder().addAllRoutingArray(this.routingArray)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
 
     @Override
     public void bootstrapBootNode(BootstrapBootNodeRequest request,
             StreamObserver<BootstrapBootNodeResponse> responseObserver) {
         BootstrapBootNodeResponse response = BootstrapBootNodeResponse.newBuilder()
-                .putAllRoutingTable(this.routingTable).build();
+                .addAllRoutingArray(this.routingArray).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -21,26 +34,25 @@ public class BootNodeServiceImpl extends BootNodeServiceGrpc.BootNodeServiceImpl
     @Override
     public void bootstrapPeerNode(BootstrapPeerNodeRequest request,
             StreamObserver<BootstrapPeerNodeResponse> responseObserver) {
-        Map<String, Boolean> randomPeerAddresses = this.getRandomPeerAddresses(5);
+        ArrayList<Integer> randomPeerAddresses = this.getRandomPeerAddresses(5);
 
         BootstrapPeerNodeResponse response = BootstrapPeerNodeResponse.newBuilder()
-                .putAllRoutingTable(randomPeerAddresses).build();
+                .addAllRoutingArray(randomPeerAddresses).build();
 
         responseObserver.onNext(response);
         responseObserver.onCompleted();
 
     }
 
-    private Map<String, Boolean> getRandomPeerAddresses(int numValues) {
-        List<String> keysAsArray = new ArrayList<String>(this.routingTable.keySet());
-        Map<String, Boolean> mapWithRandValues = new HashMap<String, Boolean>();
+    private ArrayList<Integer> getRandomPeerAddresses(int numValues) {
         Random rand = new Random();
+        ArrayList<Integer> peerAddresses = new ArrayList<Integer>();
 
         for (int i = 0; i < numValues; i++) {
-            if (i > keysAsArray.size())
+            if (i > this.routingArray.size())
                 break;
-            mapWithRandValues.put(keysAsArray.get(rand.nextInt(keysAsArray.size())), true);
+            peerAddresses.add(this.routingArray.get(rand.nextInt()));
         }
-        return mapWithRandValues;
+        return peerAddresses;
     }
 }

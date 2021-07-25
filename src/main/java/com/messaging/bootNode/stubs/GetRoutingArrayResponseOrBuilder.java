@@ -3,8 +3,8 @@
 
 package com.messaging.bootNode.stubs;
 
-public interface BootstrapBootNodeResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.messaging.bootNode.stubs.BootstrapBootNodeResponse)
+public interface GetRoutingArrayResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:com.messaging.bootNode.stubs.GetRoutingArrayResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -1,17 +1,12 @@
 package com.messaging;
 
-import com.messaging.peerNode.stubs.*;
-
-import io.grpc.*;
+import com.messaging.node.*;
+import com.messaging.peerNode.PeerNode;
 
 public class PeerNodeApp {
     public static void main(String[] args) {
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8080).usePlaintext().build();
-
-        PeerNodeServiceGrpc.PeerNodeServiceBlockingStub peerNode = PeerNodeServiceGrpc.newBlockingStub(channel);
-
-        MessageResponse response = peerNode.sendMessage(MessageRequest.newBuilder().setMessage("mmm").build());
-        System.out.println(response.toString());
-        channel.shutdown();
+        Node peerNode = NodeFactory.getNode(NodeType.PEER, 8086);
+        System.out.println(((PeerNode) peerNode).sendMessage("test", 8085));
     }
+
 }

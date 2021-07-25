@@ -8,12 +8,7 @@ public interface BootstrapPeerNodeRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string addr = 1;</code>
+   * <code>uint32 port = 1;</code>
    */
-  java.lang.String getAddr();
-  /**
-   * <code>string addr = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getAddrBytes();
+  int getPort();
 }

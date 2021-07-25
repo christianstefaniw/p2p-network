@@ -15,7 +15,7 @@ public  final class BootstrapPeerNodeRequest extends
     super(builder);
   }
   private BootstrapPeerNodeRequest() {
-    addr_ = "";
+    port_ = 0;
   }
 
   @java.lang.Override
@@ -43,10 +43,9 @@ public  final class BootstrapPeerNodeRequest extends
             }
             break;
           }
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            addr_ = s;
+            port_ = input.readUInt32();
             break;
           }
         }
@@ -72,38 +71,13 @@ public  final class BootstrapPeerNodeRequest extends
             com.messaging.bootNode.stubs.BootstrapPeerNodeRequest.class, com.messaging.bootNode.stubs.BootstrapPeerNodeRequest.Builder.class);
   }
 
-  public static final int ADDR_FIELD_NUMBER = 1;
-  private volatile java.lang.Object addr_;
+  public static final int PORT_FIELD_NUMBER = 1;
+  private int port_;
   /**
-   * <code>string addr = 1;</code>
+   * <code>uint32 port = 1;</code>
    */
-  public java.lang.String getAddr() {
-    java.lang.Object ref = addr_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      addr_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string addr = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getAddrBytes() {
-    java.lang.Object ref = addr_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      addr_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getPort() {
+    return port_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -118,8 +92,8 @@ public  final class BootstrapPeerNodeRequest extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getAddrBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, addr_);
+    if (port_ != 0) {
+      output.writeUInt32(1, port_);
     }
   }
 
@@ -128,8 +102,9 @@ public  final class BootstrapPeerNodeRequest extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getAddrBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, addr_);
+    if (port_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt32Size(1, port_);
     }
     memoizedSize = size;
     return size;
@@ -147,8 +122,8 @@ public  final class BootstrapPeerNodeRequest extends
     com.messaging.bootNode.stubs.BootstrapPeerNodeRequest other = (com.messaging.bootNode.stubs.BootstrapPeerNodeRequest) obj;
 
     boolean result = true;
-    result = result && getAddr()
-        .equals(other.getAddr());
+    result = result && (getPort()
+        == other.getPort());
     return result;
   }
 
@@ -159,8 +134,8 @@ public  final class BootstrapPeerNodeRequest extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ADDR_FIELD_NUMBER;
-    hash = (53 * hash) + getAddr().hashCode();
+    hash = (37 * hash) + PORT_FIELD_NUMBER;
+    hash = (53 * hash) + getPort();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -290,7 +265,7 @@ public  final class BootstrapPeerNodeRequest extends
     }
     public Builder clear() {
       super.clear();
-      addr_ = "";
+      port_ = 0;
 
       return this;
     }
@@ -314,7 +289,7 @@ public  final class BootstrapPeerNodeRequest extends
 
     public com.messaging.bootNode.stubs.BootstrapPeerNodeRequest buildPartial() {
       com.messaging.bootNode.stubs.BootstrapPeerNodeRequest result = new com.messaging.bootNode.stubs.BootstrapPeerNodeRequest(this);
-      result.addr_ = addr_;
+      result.port_ = port_;
       onBuilt();
       return result;
     }
@@ -356,9 +331,8 @@ public  final class BootstrapPeerNodeRequest extends
 
     public Builder mergeFrom(com.messaging.bootNode.stubs.BootstrapPeerNodeRequest other) {
       if (other == com.messaging.bootNode.stubs.BootstrapPeerNodeRequest.getDefaultInstance()) return this;
-      if (!other.getAddr().isEmpty()) {
-        addr_ = other.addr_;
-        onChanged();
+      if (other.getPort() != 0) {
+        setPort(other.getPort());
       }
       onChanged();
       return this;
@@ -386,71 +360,28 @@ public  final class BootstrapPeerNodeRequest extends
       return this;
     }
 
-    private java.lang.Object addr_ = "";
+    private int port_ ;
     /**
-     * <code>string addr = 1;</code>
+     * <code>uint32 port = 1;</code>
      */
-    public java.lang.String getAddr() {
-      java.lang.Object ref = addr_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        addr_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getPort() {
+      return port_;
     }
     /**
-     * <code>string addr = 1;</code>
+     * <code>uint32 port = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getAddrBytes() {
-      java.lang.Object ref = addr_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        addr_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string addr = 1;</code>
-     */
-    public Builder setAddr(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      addr_ = value;
+    public Builder setPort(int value) {
+      
+      port_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string addr = 1;</code>
+     * <code>uint32 port = 1;</code>
      */
-    public Builder clearAddr() {
+    public Builder clearPort() {
       
-      addr_ = getDefaultInstance().getAddr();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string addr = 1;</code>
-     */
-    public Builder setAddrBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      addr_ = value;
+      port_ = 0;
       onChanged();
       return this;
     }

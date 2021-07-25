@@ -8,36 +8,15 @@ public interface BootstrapPeerNodeResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
+   * <code>repeated uint32 routingArray = 1;</code>
    */
-  int getRoutingTableCount();
+  java.util.List<java.lang.Integer> getRoutingArrayList();
   /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
+   * <code>repeated uint32 routingArray = 1;</code>
    */
-  boolean containsRoutingTable(
-      java.lang.String key);
+  int getRoutingArrayCount();
   /**
-   * Use {@link #getRoutingTableMap()} instead.
+   * <code>repeated uint32 routingArray = 1;</code>
    */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.Boolean>
-  getRoutingTable();
-  /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
-   */
-  java.util.Map<java.lang.String, java.lang.Boolean>
-  getRoutingTableMap();
-  /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
-   */
-
-  boolean getRoutingTableOrDefault(
-      java.lang.String key,
-      boolean defaultValue);
-  /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
-   */
-
-  boolean getRoutingTableOrThrow(
-      java.lang.String key);
+  int getRoutingArray(int index);
 }

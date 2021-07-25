@@ -15,6 +15,7 @@ public  final class BootstrapPeerNodeResponse extends
     super(builder);
   }
   private BootstrapPeerNodeResponse() {
+    routingArray_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -42,17 +43,25 @@ public  final class BootstrapPeerNodeResponse extends
             }
             break;
           }
-          case 10: {
+          case 8: {
             if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-              routingTable_ = com.google.protobuf.MapField.newMapField(
-                  RoutingTableDefaultEntryHolder.defaultEntry);
+              routingArray_ = new java.util.ArrayList<java.lang.Integer>();
               mutable_bitField0_ |= 0x00000001;
             }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Boolean>
-            routingTable__ = input.readMessage(
-                RoutingTableDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            routingTable_.getMutableMap().put(
-                routingTable__.getKey(), routingTable__.getValue());
+            routingArray_.add(input.readUInt32());
+            break;
+          }
+          case 10: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+              routingArray_ = new java.util.ArrayList<java.lang.Integer>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            while (input.getBytesUntilLimit() > 0) {
+              routingArray_.add(input.readUInt32());
+            }
+            input.popLimit(limit);
             break;
           }
         }
@@ -63,6 +72,9 @@ public  final class BootstrapPeerNodeResponse extends
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        routingArray_ = java.util.Collections.unmodifiableList(routingArray_);
+      }
       makeExtensionsImmutable();
     }
   }
@@ -71,17 +83,6 @@ public  final class BootstrapPeerNodeResponse extends
     return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapPeerNodeResponse_descriptor;
   }
 
-  @SuppressWarnings({"rawtypes"})
-  protected com.google.protobuf.MapField internalGetMapField(
-      int number) {
-    switch (number) {
-      case 1:
-        return internalGetRoutingTable();
-      default:
-        throw new RuntimeException(
-            "Invalid map field number: " + number);
-    }
-  }
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapPeerNodeResponse_fieldAccessorTable
@@ -89,81 +90,28 @@ public  final class BootstrapPeerNodeResponse extends
             com.messaging.bootNode.stubs.BootstrapPeerNodeResponse.class, com.messaging.bootNode.stubs.BootstrapPeerNodeResponse.Builder.class);
   }
 
-  public static final int ROUTINGTABLE_FIELD_NUMBER = 1;
-  private static final class RoutingTableDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.String, java.lang.Boolean> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.String, java.lang.Boolean>newDefaultInstance(
-                com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapPeerNodeResponse_RoutingTableEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "",
-                com.google.protobuf.WireFormat.FieldType.BOOL,
-                false);
-  }
-  private com.google.protobuf.MapField<
-      java.lang.String, java.lang.Boolean> routingTable_;
-  private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-  internalGetRoutingTable() {
-    if (routingTable_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          RoutingTableDefaultEntryHolder.defaultEntry);
-    }
-    return routingTable_;
-  }
-
-  public int getRoutingTableCount() {
-    return internalGetRoutingTable().getMap().size();
+  public static final int ROUTINGARRAY_FIELD_NUMBER = 1;
+  private java.util.List<java.lang.Integer> routingArray_;
+  /**
+   * <code>repeated uint32 routingArray = 1;</code>
+   */
+  public java.util.List<java.lang.Integer>
+      getRoutingArrayList() {
+    return routingArray_;
   }
   /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
+   * <code>repeated uint32 routingArray = 1;</code>
    */
-
-  public boolean containsRoutingTable(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    return internalGetRoutingTable().getMap().containsKey(key);
+  public int getRoutingArrayCount() {
+    return routingArray_.size();
   }
   /**
-   * Use {@link #getRoutingTableMap()} instead.
+   * <code>repeated uint32 routingArray = 1;</code>
    */
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, java.lang.Boolean> getRoutingTable() {
-    return getRoutingTableMap();
+  public int getRoutingArray(int index) {
+    return routingArray_.get(index);
   }
-  /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
-   */
-
-  public java.util.Map<java.lang.String, java.lang.Boolean> getRoutingTableMap() {
-    return internalGetRoutingTable().getMap();
-  }
-  /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
-   */
-
-  public boolean getRoutingTableOrDefault(
-      java.lang.String key,
-      boolean defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, java.lang.Boolean> map =
-        internalGetRoutingTable().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <code>map&lt;string, bool&gt; routingTable = 1;</code>
-   */
-
-  public boolean getRoutingTableOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, java.lang.Boolean> map =
-        internalGetRoutingTable().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
-  }
+  private int routingArrayMemoizedSerializedSize = -1;
 
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
@@ -177,12 +125,14 @@ public  final class BootstrapPeerNodeResponse extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    com.google.protobuf.GeneratedMessageV3
-      .serializeStringMapTo(
-        output,
-        internalGetRoutingTable(),
-        RoutingTableDefaultEntryHolder.defaultEntry,
-        1);
+    getSerializedSize();
+    if (getRoutingArrayList().size() > 0) {
+      output.writeUInt32NoTag(10);
+      output.writeUInt32NoTag(routingArrayMemoizedSerializedSize);
+    }
+    for (int i = 0; i < routingArray_.size(); i++) {
+      output.writeUInt32NoTag(routingArray_.get(i));
+    }
   }
 
   public int getSerializedSize() {
@@ -190,15 +140,19 @@ public  final class BootstrapPeerNodeResponse extends
     if (size != -1) return size;
 
     size = 0;
-    for (java.util.Map.Entry<java.lang.String, java.lang.Boolean> entry
-         : internalGetRoutingTable().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, java.lang.Boolean>
-      routingTable__ = RoutingTableDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, routingTable__);
+    {
+      int dataSize = 0;
+      for (int i = 0; i < routingArray_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeUInt32SizeNoTag(routingArray_.get(i));
+      }
+      size += dataSize;
+      if (!getRoutingArrayList().isEmpty()) {
+        size += 1;
+        size += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(dataSize);
+      }
+      routingArrayMemoizedSerializedSize = dataSize;
     }
     memoizedSize = size;
     return size;
@@ -216,8 +170,8 @@ public  final class BootstrapPeerNodeResponse extends
     com.messaging.bootNode.stubs.BootstrapPeerNodeResponse other = (com.messaging.bootNode.stubs.BootstrapPeerNodeResponse) obj;
 
     boolean result = true;
-    result = result && internalGetRoutingTable().equals(
-        other.internalGetRoutingTable());
+    result = result && getRoutingArrayList()
+        .equals(other.getRoutingArrayList());
     return result;
   }
 
@@ -228,9 +182,9 @@ public  final class BootstrapPeerNodeResponse extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (!internalGetRoutingTable().getMap().isEmpty()) {
-      hash = (37 * hash) + ROUTINGTABLE_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetRoutingTable().hashCode();
+    if (getRoutingArrayCount() > 0) {
+      hash = (37 * hash) + ROUTINGARRAY_FIELD_NUMBER;
+      hash = (53 * hash) + getRoutingArrayList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -337,28 +291,6 @@ public  final class BootstrapPeerNodeResponse extends
       return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapPeerNodeResponse_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetRoutingTable();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMutableMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetMutableRoutingTable();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.messaging.bootNode.stubs.BootNode.internal_static_com_messaging_bootNode_stubs_BootstrapPeerNodeResponse_fieldAccessorTable
@@ -383,7 +315,8 @@ public  final class BootstrapPeerNodeResponse extends
     }
     public Builder clear() {
       super.clear();
-      internalGetMutableRoutingTable().clear();
+      routingArray_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -407,8 +340,11 @@ public  final class BootstrapPeerNodeResponse extends
     public com.messaging.bootNode.stubs.BootstrapPeerNodeResponse buildPartial() {
       com.messaging.bootNode.stubs.BootstrapPeerNodeResponse result = new com.messaging.bootNode.stubs.BootstrapPeerNodeResponse(this);
       int from_bitField0_ = bitField0_;
-      result.routingTable_ = internalGetRoutingTable();
-      result.routingTable_.makeImmutable();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        routingArray_ = java.util.Collections.unmodifiableList(routingArray_);
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.routingArray_ = routingArray_;
       onBuilt();
       return result;
     }
@@ -450,8 +386,16 @@ public  final class BootstrapPeerNodeResponse extends
 
     public Builder mergeFrom(com.messaging.bootNode.stubs.BootstrapPeerNodeResponse other) {
       if (other == com.messaging.bootNode.stubs.BootstrapPeerNodeResponse.getDefaultInstance()) return this;
-      internalGetMutableRoutingTable().mergeFrom(
-          other.internalGetRoutingTable());
+      if (!other.routingArray_.isEmpty()) {
+        if (routingArray_.isEmpty()) {
+          routingArray_ = other.routingArray_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureRoutingArrayIsMutable();
+          routingArray_.addAll(other.routingArray_);
+        }
+        onChanged();
+      }
       onChanged();
       return this;
     }
@@ -479,126 +423,69 @@ public  final class BootstrapPeerNodeResponse extends
     }
     private int bitField0_;
 
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Boolean> routingTable_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-    internalGetRoutingTable() {
-      if (routingTable_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            RoutingTableDefaultEntryHolder.defaultEntry);
-      }
-      return routingTable_;
-    }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-    internalGetMutableRoutingTable() {
-      onChanged();;
-      if (routingTable_ == null) {
-        routingTable_ = com.google.protobuf.MapField.newMapField(
-            RoutingTableDefaultEntryHolder.defaultEntry);
-      }
-      if (!routingTable_.isMutable()) {
-        routingTable_ = routingTable_.copy();
-      }
-      return routingTable_;
-    }
-
-    public int getRoutingTableCount() {
-      return internalGetRoutingTable().getMap().size();
+    private java.util.List<java.lang.Integer> routingArray_ = java.util.Collections.emptyList();
+    private void ensureRoutingArrayIsMutable() {
+      if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        routingArray_ = new java.util.ArrayList<java.lang.Integer>(routingArray_);
+        bitField0_ |= 0x00000001;
+       }
     }
     /**
-     * <code>map&lt;string, bool&gt; routingTable = 1;</code>
+     * <code>repeated uint32 routingArray = 1;</code>
      */
-
-    public boolean containsRoutingTable(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetRoutingTable().getMap().containsKey(key);
+    public java.util.List<java.lang.Integer>
+        getRoutingArrayList() {
+      return java.util.Collections.unmodifiableList(routingArray_);
     }
     /**
-     * Use {@link #getRoutingTableMap()} instead.
+     * <code>repeated uint32 routingArray = 1;</code>
      */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Boolean> getRoutingTable() {
-      return getRoutingTableMap();
+    public int getRoutingArrayCount() {
+      return routingArray_.size();
     }
     /**
-     * <code>map&lt;string, bool&gt; routingTable = 1;</code>
+     * <code>repeated uint32 routingArray = 1;</code>
      */
-
-    public java.util.Map<java.lang.String, java.lang.Boolean> getRoutingTableMap() {
-      return internalGetRoutingTable().getMap();
+    public int getRoutingArray(int index) {
+      return routingArray_.get(index);
     }
     /**
-     * <code>map&lt;string, bool&gt; routingTable = 1;</code>
+     * <code>repeated uint32 routingArray = 1;</code>
      */
-
-    public boolean getRoutingTableOrDefault(
-        java.lang.String key,
-        boolean defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Boolean> map =
-          internalGetRoutingTable().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, bool&gt; routingTable = 1;</code>
-     */
-
-    public boolean getRoutingTableOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Boolean> map =
-          internalGetRoutingTable().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public Builder clearRoutingTable() {
-      internalGetMutableRoutingTable().getMutableMap()
-          .clear();
+    public Builder setRoutingArray(
+        int index, int value) {
+      ensureRoutingArrayIsMutable();
+      routingArray_.set(index, value);
+      onChanged();
       return this;
     }
     /**
-     * <code>map&lt;string, bool&gt; routingTable = 1;</code>
+     * <code>repeated uint32 routingArray = 1;</code>
      */
-
-    public Builder removeRoutingTable(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableRoutingTable().getMutableMap()
-          .remove(key);
+    public Builder addRoutingArray(int value) {
+      ensureRoutingArrayIsMutable();
+      routingArray_.add(value);
+      onChanged();
       return this;
     }
     /**
-     * Use alternate mutation accessors instead.
+     * <code>repeated uint32 routingArray = 1;</code>
      */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Boolean>
-    getMutableRoutingTable() {
-      return internalGetMutableRoutingTable().getMutableMap();
-    }
-    /**
-     * <code>map&lt;string, bool&gt; routingTable = 1;</code>
-     */
-    public Builder putRoutingTable(
-        java.lang.String key,
-        boolean value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      
-      internalGetMutableRoutingTable().getMutableMap()
-          .put(key, value);
+    public Builder addAllRoutingArray(
+        java.lang.Iterable<? extends java.lang.Integer> values) {
+      ensureRoutingArrayIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, routingArray_);
+      onChanged();
       return this;
     }
     /**
-     * <code>map&lt;string, bool&gt; routingTable = 1;</code>
+     * <code>repeated uint32 routingArray = 1;</code>
      */
-
-    public Builder putAllRoutingTable(
-        java.util.Map<java.lang.String, java.lang.Boolean> values) {
-      internalGetMutableRoutingTable().getMutableMap()
-          .putAll(values);
+    public Builder clearRoutingArray() {
+      routingArray_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
       return this;
     }
     public final Builder setUnknownFields(
