@@ -18,19 +18,17 @@ public class BootstrappedPeerNode extends PeerNodeServiceImpl {
 
     public BootstrappedPeerNode(int port) {
         this.port = port;
-        this.bootstrap();
+        super.connectedPeerNodes = this.dialPeerNodes(this.getRoutingArray(), 5);
     }
 
-    private void bootstrap() {
+    private ArrayList<Integer> getRoutingArray() {
         ManagedChannel channel = BootNodeHelpers.getRandomBootNodeChannel();
         BootNodeServiceBlockingStub bootNodeStub = BootNodeHelpers.newBlockingStub(channel);
         BootstrapPeerNodeRequest request = BootstrapPeerNodeRequest.newBuilder().setPort(this.port).build();
         BootstrapPeerNodeResponse response = bootNodeStub.bootstrapPeerNode(request);
         channel.shutdown();
 
-        System.out.println(response.getRoutingArrayList());
-        if (response.getRoutingArrayList().size() > 0)
-            super.connectedPeerNodes = this.dialPeerNodes(new ArrayList<Integer>(response.getRoutingArrayList()), 5);
+        return new ArrayList<Integer>(response.getRoutingArrayList());
     }
 
     private HashMap<Integer, ManagedChannel> dialPeerNodes(ArrayList<Integer> routingArray, int numOfNodes) {

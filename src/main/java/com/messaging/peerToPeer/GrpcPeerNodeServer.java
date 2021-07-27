@@ -12,6 +12,6 @@ public class GrpcPeerNodeServer extends GrpcServer {
 
     @Override
     protected Server getServer() {
-        return ServerBuilder.forPort(this.port).addService(new BootstrappedPeerNode(this.port)).build();
+        return ServerBuilder.forPort(this.port).addService(new BootstrappedPeerNode(super.port)).build();
     }
 }

@@ -44,17 +44,18 @@ public final class PeerNode {
   static {
     java.lang.String[] descriptorData = {
       "\n\017peer_node.proto\022\034com.messaging.peerNod" +
-      "e.stubs\"!\n\016MessageRequest\022\017\n\007message\030\001 \001" +
-      "(\t\"\037\n\017MessageResponse\022\014\n\004sent\030\001 \001(\010\"\'\n\027R" +
-      "egisterPeerNodeRequest\022\014\n\004port\030\001 \001(\r\".\n\030" +
-      "RegisterPeerNodeResponse\022\022\n\nregistered\030\001" +
-      " \001(\0102\201\002\n\017PeerNodeService\022j\n\013sendMessage\022" +
-      ",.com.messaging.peerNode.stubs.MessageRe" +
-      "quest\032-.com.messaging.peerNode.stubs.Mes" +
-      "sageResponse\022\201\001\n\020registerPeerNode\0225.com." +
-      "messaging.peerNode.stubs.RegisterPeerNod",
-      "eRequest\0326.com.messaging.peerNode.stubs." +
-      "RegisterPeerNodeResponseB\002P\001b\006proto3"
+      "e.stubs\"5\n\016MessageRequest\022\017\n\007message\030\001 \001" +
+      "(\t\022\022\n\ntargetPort\030\002 \001(\r\"\037\n\017MessageRespons" +
+      "e\022\014\n\004sent\030\001 \001(\010\"\'\n\027RegisterPeerNodeReque" +
+      "st\022\014\n\004port\030\001 \001(\r\".\n\030RegisterPeerNodeResp" +
+      "onse\022\022\n\nregistered\030\001 \001(\0102\201\002\n\017PeerNodeSer" +
+      "vice\022j\n\013sendMessage\022,.com.messaging.peer" +
+      "Node.stubs.MessageRequest\032-.com.messagin" +
+      "g.peerNode.stubs.MessageResponse\022\201\001\n\020reg" +
+      "isterPeerNode\0225.com.messaging.peerNode.s",
+      "tubs.RegisterPeerNodeRequest\0326.com.messa" +
+      "ging.peerNode.stubs.RegisterPeerNodeResp" +
+      "onseB\002P\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -73,7 +74,7 @@ public final class PeerNode {
     internal_static_com_messaging_peerNode_stubs_MessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_messaging_peerNode_stubs_MessageRequest_descriptor,
-        new java.lang.String[] { "Message", });
+        new java.lang.String[] { "Message", "TargetPort", });
     internal_static_com_messaging_peerNode_stubs_MessageResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_messaging_peerNode_stubs_MessageResponse_fieldAccessorTable = new

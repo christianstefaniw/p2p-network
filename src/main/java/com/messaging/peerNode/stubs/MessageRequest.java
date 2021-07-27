@@ -16,6 +16,7 @@ public  final class MessageRequest extends
   }
   private MessageRequest() {
     message_ = "";
+    targetPort_ = 0;
   }
 
   @java.lang.Override
@@ -47,6 +48,11 @@ public  final class MessageRequest extends
             java.lang.String s = input.readStringRequireUtf8();
 
             message_ = s;
+            break;
+          }
+          case 16: {
+
+            targetPort_ = input.readUInt32();
             break;
           }
         }
@@ -106,6 +112,15 @@ public  final class MessageRequest extends
     }
   }
 
+  public static final int TARGETPORT_FIELD_NUMBER = 2;
+  private int targetPort_;
+  /**
+   * <code>uint32 targetPort = 2;</code>
+   */
+  public int getTargetPort() {
+    return targetPort_;
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -121,6 +136,9 @@ public  final class MessageRequest extends
     if (!getMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
     }
+    if (targetPort_ != 0) {
+      output.writeUInt32(2, targetPort_);
+    }
   }
 
   public int getSerializedSize() {
@@ -130,6 +148,10 @@ public  final class MessageRequest extends
     size = 0;
     if (!getMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
+    }
+    if (targetPort_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt32Size(2, targetPort_);
     }
     memoizedSize = size;
     return size;
@@ -149,6 +171,8 @@ public  final class MessageRequest extends
     boolean result = true;
     result = result && getMessage()
         .equals(other.getMessage());
+    result = result && (getTargetPort()
+        == other.getTargetPort());
     return result;
   }
 
@@ -161,6 +185,8 @@ public  final class MessageRequest extends
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
+    hash = (37 * hash) + TARGETPORT_FIELD_NUMBER;
+    hash = (53 * hash) + getTargetPort();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -292,6 +318,8 @@ public  final class MessageRequest extends
       super.clear();
       message_ = "";
 
+      targetPort_ = 0;
+
       return this;
     }
 
@@ -315,6 +343,7 @@ public  final class MessageRequest extends
     public com.messaging.peerNode.stubs.MessageRequest buildPartial() {
       com.messaging.peerNode.stubs.MessageRequest result = new com.messaging.peerNode.stubs.MessageRequest(this);
       result.message_ = message_;
+      result.targetPort_ = targetPort_;
       onBuilt();
       return result;
     }
@@ -359,6 +388,9 @@ public  final class MessageRequest extends
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
         onChanged();
+      }
+      if (other.getTargetPort() != 0) {
+        setTargetPort(other.getTargetPort());
       }
       onChanged();
       return this;
@@ -451,6 +483,32 @@ public  final class MessageRequest extends
   checkByteStringIsUtf8(value);
       
       message_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int targetPort_ ;
+    /**
+     * <code>uint32 targetPort = 2;</code>
+     */
+    public int getTargetPort() {
+      return targetPort_;
+    }
+    /**
+     * <code>uint32 targetPort = 2;</code>
+     */
+    public Builder setTargetPort(int value) {
+      
+      targetPort_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>uint32 targetPort = 2;</code>
+     */
+    public Builder clearTargetPort() {
+      
+      targetPort_ = 0;
       onChanged();
       return this;
     }

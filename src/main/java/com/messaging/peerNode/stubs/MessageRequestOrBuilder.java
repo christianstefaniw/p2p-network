@@ -16,4 +16,9 @@ public interface MessageRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getMessageBytes();
+
+  /**
+   * <code>uint32 targetPort = 2;</code>
+   */
+  int getTargetPort();
 }
