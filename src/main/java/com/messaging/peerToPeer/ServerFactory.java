@@ -1,9 +1,7 @@
 package com.messaging.peerToPeer;
 
-import com.messaging.node.NodeType;
-
 public class ServerFactory {
-    static public GrpcServer getServer(NodeType type, int port) {
+    static public GrpcServer getServer(ServerType type, int port) {
         switch (type) {
             case BOOT:
                 return new GrpcBootNodeServer(port);

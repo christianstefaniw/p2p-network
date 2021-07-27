@@ -1,4 +1,4 @@
-package com.messaging.peerNodeApp;
+package com.messaging.messagingService;
 
 import java.util.Scanner;
 
@@ -9,10 +9,10 @@ import com.messaging.peerToPeer.ServerHelpers;
 
 import io.grpc.ManagedChannel;
 
-public class MessagingThread extends Thread {
+public class MessagingService extends Thread {
     final int serverPort;
 
-    public MessagingThread(int serverPort) {
+    public MessagingService(int serverPort) {
         this.serverPort = serverPort;
     }
 

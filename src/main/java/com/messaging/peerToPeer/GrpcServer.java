@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import io.grpc.Server;
 
-public abstract class GrpcServer {
+public abstract class GrpcServer extends Thread {
     final int port;
 
     public GrpcServer(int port) {
