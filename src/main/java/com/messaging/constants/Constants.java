@@ -1,5 +1,5 @@
 package com.messaging.constants;
 
 final public class Constants {
-    public static int[] BOOT_NODE_ADDRESSES = {8080, 8081, 8082, 8083, 8084};
+    public static int[] BOOT_NODE_ADDRESSES = {8082};
 }

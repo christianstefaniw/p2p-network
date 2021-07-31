@@ -10,7 +10,6 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class BootstrappedBootNode extends BootNodeServiceImpl {
     final int port;
@@ -21,13 +20,13 @@ public class BootstrappedBootNode extends BootNodeServiceImpl {
         super.routingArray = this.getRoutingArrayFromBootNode();
     }
 
-    private HashMap<Integer, ManagedChannel> connectToBootNodes() {
-        HashMap<Integer, ManagedChannel> connectedBootNodes = new HashMap<Integer, ManagedChannel>();
+    private ArrayList<ManagedChannel> connectToBootNodes() {
+        ArrayList<ManagedChannel> connectedBootNodes = new ArrayList<ManagedChannel>();
 
         for (int i = 0; i < Constants.BOOT_NODE_ADDRESSES.length; i++) {
             int port = Constants.BOOT_NODE_ADDRESSES[i];
             ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", port).usePlaintext().build();
-            connectedBootNodes.put(port, channel);
+            connectedBootNodes.add(channel);
         }
         return connectedBootNodes;
     }
@@ -45,6 +44,8 @@ public class BootstrappedBootNode extends BootNodeServiceImpl {
         } catch (StatusRuntimeException e) {
 
         }
+
+        System.out.println(routingArray);
 
         return routingArray;
     }

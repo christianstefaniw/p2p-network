@@ -16,8 +16,8 @@ public class BootNodeHelpers {
     public static ManagedChannel getRandomBootNodeChannel() {
         Random rand = new Random();
         int port = Constants.BOOT_NODE_ADDRESSES[rand.nextInt(Constants.BOOT_NODE_ADDRESSES.length)];
-
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8080).usePlaintext().build();
+        System.out.println(port);
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8083).usePlaintext().build();
         return channel;
     }
 }

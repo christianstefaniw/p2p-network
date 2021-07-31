@@ -63,6 +63,18 @@ public final class BootNodeServiceGrpc {
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               com.messaging.bootNode.stubs.GetRoutingArrayResponse.getDefaultInstance()))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.messaging.bootNode.stubs.PropogateRoutingArrayRequest,
+      com.messaging.bootNode.stubs.PropogateRoutingArrayResponse> METHOD_PROPOGATE_ROUTING_ARRAY =
+      io.grpc.MethodDescriptor.<com.messaging.bootNode.stubs.PropogateRoutingArrayRequest, com.messaging.bootNode.stubs.PropogateRoutingArrayResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "com.messaging.bootNode.stubs.BootNodeService", "propogateRoutingArray"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.messaging.bootNode.stubs.PropogateRoutingArrayRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.messaging.bootNode.stubs.PropogateRoutingArrayResponse.getDefaultInstance()))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -112,6 +124,13 @@ public final class BootNodeServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_GET_ROUTING_ARRAY, responseObserver);
     }
 
+    /**
+     */
+    public void propogateRoutingArray(com.messaging.bootNode.stubs.PropogateRoutingArrayRequest request,
+        io.grpc.stub.StreamObserver<com.messaging.bootNode.stubs.PropogateRoutingArrayResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_PROPOGATE_ROUTING_ARRAY, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -135,6 +154,13 @@ public final class BootNodeServiceGrpc {
                 com.messaging.bootNode.stubs.GetRoutingArrayRequest,
                 com.messaging.bootNode.stubs.GetRoutingArrayResponse>(
                   this, METHODID_GET_ROUTING_ARRAY)))
+          .addMethod(
+            METHOD_PROPOGATE_ROUTING_ARRAY,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.messaging.bootNode.stubs.PropogateRoutingArrayRequest,
+                com.messaging.bootNode.stubs.PropogateRoutingArrayResponse>(
+                  this, METHODID_PROPOGATE_ROUTING_ARRAY)))
           .build();
     }
   }
@@ -180,6 +206,14 @@ public final class BootNodeServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_GET_ROUTING_ARRAY, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void propogateRoutingArray(com.messaging.bootNode.stubs.PropogateRoutingArrayRequest request,
+        io.grpc.stub.StreamObserver<com.messaging.bootNode.stubs.PropogateRoutingArrayResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_PROPOGATE_ROUTING_ARRAY, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -219,6 +253,13 @@ public final class BootNodeServiceGrpc {
     public com.messaging.bootNode.stubs.GetRoutingArrayResponse getRoutingArray(com.messaging.bootNode.stubs.GetRoutingArrayRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_ROUTING_ARRAY, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.messaging.bootNode.stubs.PropogateRoutingArrayResponse propogateRoutingArray(com.messaging.bootNode.stubs.PropogateRoutingArrayRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_PROPOGATE_ROUTING_ARRAY, getCallOptions(), request);
     }
   }
 
@@ -263,11 +304,20 @@ public final class BootNodeServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_GET_ROUTING_ARRAY, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.messaging.bootNode.stubs.PropogateRoutingArrayResponse> propogateRoutingArray(
+        com.messaging.bootNode.stubs.PropogateRoutingArrayRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_PROPOGATE_ROUTING_ARRAY, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_BOOTSTRAP_BOOT_NODE = 0;
   private static final int METHODID_BOOTSTRAP_PEER_NODE = 1;
   private static final int METHODID_GET_ROUTING_ARRAY = 2;
+  private static final int METHODID_PROPOGATE_ROUTING_ARRAY = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -297,6 +347,10 @@ public final class BootNodeServiceGrpc {
         case METHODID_GET_ROUTING_ARRAY:
           serviceImpl.getRoutingArray((com.messaging.bootNode.stubs.GetRoutingArrayRequest) request,
               (io.grpc.stub.StreamObserver<com.messaging.bootNode.stubs.GetRoutingArrayResponse>) responseObserver);
+          break;
+        case METHODID_PROPOGATE_ROUTING_ARRAY:
+          serviceImpl.propogateRoutingArray((com.messaging.bootNode.stubs.PropogateRoutingArrayRequest) request,
+              (io.grpc.stub.StreamObserver<com.messaging.bootNode.stubs.PropogateRoutingArrayResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -334,6 +388,7 @@ public final class BootNodeServiceGrpc {
               .addMethod(METHOD_BOOTSTRAP_BOOT_NODE)
               .addMethod(METHOD_BOOTSTRAP_PEER_NODE)
               .addMethod(METHOD_GET_ROUTING_ARRAY)
+              .addMethod(METHOD_PROPOGATE_ROUTING_ARRAY)
               .build();
         }
       }

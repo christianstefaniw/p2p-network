@@ -35,6 +35,16 @@ public final class BootNode {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_messaging_bootNode_stubs_BootstrapPeerNodeResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -58,20 +68,26 @@ public final class BootNode {
       "ort\030\001 \001(\r\"1\n\031BootstrapBootNodeResponse\022\024" +
       "\n\014routingArray\030\001 \003(\r\"(\n\030BootstrapPeerNod" +
       "eRequest\022\014\n\004port\030\001 \001(\r\"1\n\031BootstrapPeerN" +
-      "odeResponse\022\024\n\014routingArray\030\001 \003(\r\"\030\n\026Get" +
-      "RoutingArrayRequest\"/\n\027GetRoutingArrayRe" +
-      "sponse\022\024\n\014routingArray\030\001 \003(\r2\237\003\n\017BootNod" +
-      "eService\022\204\001\n\021bootstrapBootNode\0226.com.mes" +
-      "saging.bootNode.stubs.BootstrapBootNodeR",
-      "equest\0327.com.messaging.bootNode.stubs.Bo" +
-      "otstrapBootNodeResponse\022\204\001\n\021bootstrapPee" +
-      "rNode\0226.com.messaging.bootNode.stubs.Boo" +
-      "tstrapPeerNodeRequest\0327.com.messaging.bo" +
-      "otNode.stubs.BootstrapPeerNodeResponse\022~" +
-      "\n\017getRoutingArray\0224.com.messaging.bootNo" +
-      "de.stubs.GetRoutingArrayRequest\0325.com.me" +
-      "ssaging.bootNode.stubs.GetRoutingArrayRe" +
-      "sponseB\002P\001b\006proto3"
+      "odeResponse\022\024\n\014routingArray\030\001 \003(\r\"4\n\034Pro" +
+      "pogateRoutingArrayRequest\022\024\n\014routingArra" +
+      "y\030\001 \003(\r\"\037\n\035PropogateRoutingArrayResponse" +
+      "\"\030\n\026GetRoutingArrayRequest\"/\n\027GetRouting" +
+      "ArrayResponse\022\024\n\014routingArray\030\001 \003(\r2\262\004\n\017",
+      "BootNodeService\022\204\001\n\021bootstrapBootNode\0226." +
+      "com.messaging.bootNode.stubs.BootstrapBo" +
+      "otNodeRequest\0327.com.messaging.bootNode.s" +
+      "tubs.BootstrapBootNodeResponse\022\204\001\n\021boots" +
+      "trapPeerNode\0226.com.messaging.bootNode.st" +
+      "ubs.BootstrapPeerNodeRequest\0327.com.messa" +
+      "ging.bootNode.stubs.BootstrapPeerNodeRes" +
+      "ponse\022~\n\017getRoutingArray\0224.com.messaging" +
+      ".bootNode.stubs.GetRoutingArrayRequest\0325" +
+      ".com.messaging.bootNode.stubs.GetRouting",
+      "ArrayResponse\022\220\001\n\025propogateRoutingArray\022" +
+      ":.com.messaging.bootNode.stubs.Propogate" +
+      "RoutingArrayRequest\032;.com.messaging.boot" +
+      "Node.stubs.PropogateRoutingArrayResponse" +
+      "B\002P\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -109,14 +125,26 @@ public final class BootNode {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_messaging_bootNode_stubs_BootstrapPeerNodeResponse_descriptor,
         new java.lang.String[] { "RoutingArray", });
-    internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_descriptor =
+    internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayRequest_descriptor,
+        new java.lang.String[] { "RoutingArray", });
+    internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_messaging_bootNode_stubs_PropogateRoutingArrayResponse_descriptor,
+        new java.lang.String[] { });
+    internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_messaging_bootNode_stubs_GetRoutingArrayRequest_descriptor,
         new java.lang.String[] { });
     internal_static_com_messaging_bootNode_stubs_GetRoutingArrayResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_messaging_bootNode_stubs_GetRoutingArrayResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_messaging_bootNode_stubs_GetRoutingArrayResponse_descriptor,

@@ -16,6 +16,12 @@ message BootstrapPeerNodeResponse {
     repeated uint32 routingArray = 1;
 }
 
+message PropogateRoutingArrayRequest {
+    repeated uint32 routingArray = 1;
+}
+
+message PropogateRoutingArrayResponse{}
+
 message GetRoutingArrayRequest {}
 message GetRoutingArrayResponse {
     repeated uint32 routingArray = 1;
@@ -25,4 +31,5 @@ service BootNodeService {
     rpc bootstrapBootNode(BootstrapBootNodeRequest) returns (BootstrapBootNodeResponse);
     rpc bootstrapPeerNode(BootstrapPeerNodeRequest) returns (BootstrapPeerNodeResponse);
     rpc getRoutingArray(GetRoutingArrayRequest) returns (GetRoutingArrayResponse);
+    rpc propogateRoutingArray(PropogateRoutingArrayRequest) returns (PropogateRoutingArrayResponse);
 }
