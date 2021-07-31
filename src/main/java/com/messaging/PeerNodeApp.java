@@ -8,9 +8,10 @@ public class PeerNodeApp {
         final int port = 8082;
         GrpcServer peerNodeServer = ServerFactory.getServer(ServerType.PEER, port);
         MessagingService messagingService = new MessagingService(port);
-        messagingService.start();
 
-        peerNodeServer.run();
+        peerNodeServer.start();
 
+        while (true)
+            messagingService.run();
     }
 }

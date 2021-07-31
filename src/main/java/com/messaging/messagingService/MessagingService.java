@@ -11,25 +11,23 @@ import io.grpc.ManagedChannel;
 
 public class MessagingService extends Thread {
     final int serverPort;
+    final Scanner messageScanner;
+    final Scanner sendPortScanner;
 
     public MessagingService(int serverPort) {
         this.serverPort = serverPort;
+        this.messageScanner = new Scanner(System.in);
+        this.sendPortScanner = new Scanner(System.in);
     }
 
     public void run() {
         String message;
         int sendPort;
 
-        Scanner messageScanner = new Scanner(System.in);
-        Scanner sendPortScanner = new Scanner(System.in);
-
         System.out.println("Enter your message: ");
-        message = messageScanner.nextLine();
+        message = this.messageScanner.next();
         System.out.println("Enter the target port: ");
-        sendPort = sendPortScanner.nextInt();
-
-        messageScanner.close();
-        sendPortScanner.close();
+        sendPort = this.sendPortScanner.nextInt();
 
         this.sendMessage(message, sendPort);
     }
@@ -43,6 +41,5 @@ public class MessagingService extends Thread {
                 .build();
 
         stub.sendMessage(request);
-
     }
 }
