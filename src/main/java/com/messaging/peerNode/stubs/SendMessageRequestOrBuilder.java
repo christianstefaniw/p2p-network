@@ -3,8 +3,8 @@
 
 package com.messaging.peerNode.stubs;
 
-public interface MessageRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.messaging.peerNode.stubs.MessageRequest)
+public interface SendMessageRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:com.messaging.peerNode.stubs.SendMessageRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

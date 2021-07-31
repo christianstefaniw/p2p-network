@@ -28,16 +28,16 @@ public final class PeerNodeServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.messaging.peerNode.stubs.MessageRequest,
-      com.messaging.peerNode.stubs.MessageResponse> METHOD_SEND_MESSAGE =
-      io.grpc.MethodDescriptor.<com.messaging.peerNode.stubs.MessageRequest, com.messaging.peerNode.stubs.MessageResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.messaging.peerNode.stubs.SendMessageRequest,
+      com.messaging.peerNode.stubs.SendMessageResponse> METHOD_SEND_MESSAGE =
+      io.grpc.MethodDescriptor.<com.messaging.peerNode.stubs.SendMessageRequest, com.messaging.peerNode.stubs.SendMessageResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "com.messaging.peerNode.stubs.PeerNodeService", "sendMessage"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.messaging.peerNode.stubs.MessageRequest.getDefaultInstance()))
+              com.messaging.peerNode.stubs.SendMessageRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.messaging.peerNode.stubs.MessageResponse.getDefaultInstance()))
+              com.messaging.peerNode.stubs.SendMessageResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.messaging.peerNode.stubs.RegisterPeerNodeRequest,
@@ -81,8 +81,8 @@ public final class PeerNodeServiceGrpc {
 
     /**
      */
-    public void sendMessage(com.messaging.peerNode.stubs.MessageRequest request,
-        io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.MessageResponse> responseObserver) {
+    public void sendMessage(com.messaging.peerNode.stubs.SendMessageRequest request,
+        io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.SendMessageResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_SEND_MESSAGE, responseObserver);
     }
 
@@ -99,8 +99,8 @@ public final class PeerNodeServiceGrpc {
             METHOD_SEND_MESSAGE,
             asyncUnaryCall(
               new MethodHandlers<
-                com.messaging.peerNode.stubs.MessageRequest,
-                com.messaging.peerNode.stubs.MessageResponse>(
+                com.messaging.peerNode.stubs.SendMessageRequest,
+                com.messaging.peerNode.stubs.SendMessageResponse>(
                   this, METHODID_SEND_MESSAGE)))
           .addMethod(
             METHOD_REGISTER_PEER_NODE,
@@ -133,8 +133,8 @@ public final class PeerNodeServiceGrpc {
 
     /**
      */
-    public void sendMessage(com.messaging.peerNode.stubs.MessageRequest request,
-        io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.MessageResponse> responseObserver) {
+    public void sendMessage(com.messaging.peerNode.stubs.SendMessageRequest request,
+        io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.SendMessageResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_SEND_MESSAGE, getCallOptions()), request, responseObserver);
     }
@@ -168,7 +168,7 @@ public final class PeerNodeServiceGrpc {
 
     /**
      */
-    public com.messaging.peerNode.stubs.MessageResponse sendMessage(com.messaging.peerNode.stubs.MessageRequest request) {
+    public com.messaging.peerNode.stubs.SendMessageResponse sendMessage(com.messaging.peerNode.stubs.SendMessageRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_SEND_MESSAGE, getCallOptions(), request);
     }
@@ -201,8 +201,8 @@ public final class PeerNodeServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.messaging.peerNode.stubs.MessageResponse> sendMessage(
-        com.messaging.peerNode.stubs.MessageRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.messaging.peerNode.stubs.SendMessageResponse> sendMessage(
+        com.messaging.peerNode.stubs.SendMessageRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_SEND_MESSAGE, getCallOptions()), request);
     }
@@ -237,8 +237,8 @@ public final class PeerNodeServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_SEND_MESSAGE:
-          serviceImpl.sendMessage((com.messaging.peerNode.stubs.MessageRequest) request,
-              (io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.MessageResponse>) responseObserver);
+          serviceImpl.sendMessage((com.messaging.peerNode.stubs.SendMessageRequest) request,
+              (io.grpc.stub.StreamObserver<com.messaging.peerNode.stubs.SendMessageResponse>) responseObserver);
           break;
         case METHODID_REGISTER_PEER_NODE:
           serviceImpl.registerPeerNode((com.messaging.peerNode.stubs.RegisterPeerNodeRequest) request,

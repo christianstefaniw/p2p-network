@@ -3,13 +3,12 @@ option java_multiple_files = true;
 package com.messaging.peerNode.stubs;
 
 
-message MessageRequest {
+message SendMessageRequest {
     string message = 1;
     uint32 targetPort = 2;
 }
 
-message MessageResponse {
-    bool sent = 1;
+message SendMessageResponse {
 }
 
 message RegisterPeerNodeRequest {
@@ -21,6 +20,6 @@ message RegisterPeerNodeResponse {
 }
 
 service PeerNodeService {
-    rpc sendMessage(MessageRequest) returns (MessageResponse);
+    rpc sendMessage(SendMessageRequest) returns (SendMessageResponse);
     rpc registerPeerNode(RegisterPeerNodeRequest) returns (RegisterPeerNodeResponse);
 }

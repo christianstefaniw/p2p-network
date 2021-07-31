@@ -3,7 +3,7 @@ package com.messaging.messagingService;
 import java.util.Scanner;
 
 import com.messaging.peerNode.PeerNodeHelpers;
-import com.messaging.peerNode.stubs.MessageRequest;
+import com.messaging.peerNode.stubs.SendMessageRequest;
 import com.messaging.peerNode.stubs.PeerNodeServiceGrpc.PeerNodeServiceBlockingStub;
 import com.messaging.peerToPeer.ServerHelpers;
 
@@ -25,6 +25,7 @@ public class MessagingService extends Thread {
 
         System.out.println("Enter your message: ");
         message = messageScanner.nextLine();
+        System.out.println("Enter the target port: ");
         sendPort = sendPortScanner.nextInt();
 
         messageScanner.close();
@@ -34,11 +35,12 @@ public class MessagingService extends Thread {
     }
 
     private void sendMessage(String message, int sendPort) {
-        ManagedChannel channel = ServerHelpers.getManagedChannel(this.serverPort);
+        ManagedChannel channel = ServerHelpers.getManagedChannel(sendPort);
 
         PeerNodeServiceBlockingStub stub = PeerNodeHelpers.newBlockingStub(channel);
 
-        MessageRequest request = MessageRequest.newBuilder().setMessage(message).setTargetPort(sendPort).build();
+        SendMessageRequest request = SendMessageRequest.newBuilder().setMessage(message).setTargetPort(sendPort)
+                .build();
 
         stub.sendMessage(request);
 

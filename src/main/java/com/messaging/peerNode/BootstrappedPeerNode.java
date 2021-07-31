@@ -1,7 +1,6 @@
 package com.messaging.peerNode;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 import com.messaging.bootNode.BootNodeHelpers;
@@ -15,10 +14,12 @@ import io.grpc.ManagedChannelBuilder;
 
 public class BootstrappedPeerNode extends PeerNodeServiceImpl {
     private final int port;
+    private ArrayList<Integer> routingArray;
 
     public BootstrappedPeerNode(int port) {
         this.port = port;
-        super.connectedPeerNodes = this.dialPeerNodes(this.getRoutingArray(), 5);
+        this.routingArray = this.getRoutingArray();
+        super.connectedPeerNodes = this.dialPeerNodes(5);
     }
 
     private ArrayList<Integer> getRoutingArray() {
@@ -31,18 +32,38 @@ public class BootstrappedPeerNode extends PeerNodeServiceImpl {
         return new ArrayList<Integer>(response.getRoutingArrayList());
     }
 
-    private HashMap<Integer, ManagedChannel> dialPeerNodes(ArrayList<Integer> routingArray, int numOfNodes) {
-        HashMap<Integer, ManagedChannel> connectedPeerNodes = new HashMap<Integer, ManagedChannel>();
-        Random rand = new Random();
+    private ArrayList<ManagedChannel> dialPeerNodes(int numOfNodes) {
+        ArrayList<ManagedChannel> connectedPeerNodes = new ArrayList<ManagedChannel>();
+
+        if (this.routingArray.size() == 0)
+            return connectedPeerNodes;
 
         for (int i = 0; i < numOfNodes; i++) {
-            int port = routingArray.get(rand.nextInt(routingArray.size()));
+            int port = this.getRandomPortFromRoutingArray();
+            if (!this.portIsValid(port))
+                continue;
             ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", port).usePlaintext().build();
             this.registerToConnectedPeerNode(channel);
-            connectedPeerNodes.put(port, channel);
+            connectedPeerNodes.add(channel);
         }
 
         return connectedPeerNodes;
+    }
+
+    private int getRandomPortFromRoutingArray() {
+        Random rand = new Random();
+        int port = routingArray.get(rand.nextInt(this.routingArray.size()));
+        if (this.randomPortIsThisNodePort(port))
+            return -1;
+        return port;
+    }
+
+    private boolean randomPortIsThisNodePort(int port) {
+        return port == this.port;
+    }
+
+    private boolean portIsValid(int port) {
+        return port != -1;
     }
 
     /**

@@ -1,6 +1,6 @@
 package com.messaging.peerNode;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import com.messaging.peerNode.stubs.*;
 import com.messaging.peerNode.stubs.PeerNodeServiceGrpc.*;
@@ -10,12 +10,13 @@ import io.grpc.stub.StreamObserver;
 import io.grpc.ManagedChannel;
 
 public class PeerNodeServiceImpl extends PeerNodeServiceImplBase {
-    protected HashMap<Integer, ManagedChannel> connectedPeerNodes;
+    protected ArrayList<ManagedChannel> connectedPeerNodes;
 
     @Override
-    public void sendMessage(MessageRequest request, StreamObserver<MessageResponse> responseObserver) {
+    public void sendMessage(SendMessageRequest request, StreamObserver<SendMessageResponse> responseObserver) {
+
         System.out.println(request.toString());
-        MessageResponse response = MessageResponse.newBuilder().setSent(true).build();
+        SendMessageResponse response = SendMessageResponse.newBuilder().build();
 
         responseObserver.onNext(response);
         responseObserver.onCompleted();
@@ -26,6 +27,6 @@ public class PeerNodeServiceImpl extends PeerNodeServiceImplBase {
             StreamObserver<RegisterPeerNodeResponse> responseObserver) {
         int newPeerNodePort = request.getPort();
         ManagedChannel channel = ServerHelpers.getManagedChannel(newPeerNodePort);
-        this.connectedPeerNodes.put(newPeerNodePort, channel);
+        this.connectedPeerNodes.add(channel);
     }
 }

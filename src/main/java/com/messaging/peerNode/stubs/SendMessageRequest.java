@@ -4,17 +4,17 @@
 package com.messaging.peerNode.stubs;
 
 /**
- * Protobuf type {@code com.messaging.peerNode.stubs.MessageRequest}
+ * Protobuf type {@code com.messaging.peerNode.stubs.SendMessageRequest}
  */
-public  final class MessageRequest extends
+public  final class SendMessageRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.messaging.peerNode.stubs.MessageRequest)
-    MessageRequestOrBuilder {
-  // Use MessageRequest.newBuilder() to construct.
-  private MessageRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:com.messaging.peerNode.stubs.SendMessageRequest)
+    SendMessageRequestOrBuilder {
+  // Use SendMessageRequest.newBuilder() to construct.
+  private SendMessageRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private MessageRequest() {
+  private SendMessageRequest() {
     message_ = "";
     targetPort_ = 0;
   }
@@ -24,7 +24,7 @@ public  final class MessageRequest extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private MessageRequest(
+  private SendMessageRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -68,14 +68,14 @@ public  final class MessageRequest extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_MessageRequest_descriptor;
+    return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_SendMessageRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_MessageRequest_fieldAccessorTable
+    return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_SendMessageRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.messaging.peerNode.stubs.MessageRequest.class, com.messaging.peerNode.stubs.MessageRequest.Builder.class);
+            com.messaging.peerNode.stubs.SendMessageRequest.class, com.messaging.peerNode.stubs.SendMessageRequest.Builder.class);
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 1;
@@ -163,10 +163,10 @@ public  final class MessageRequest extends
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.messaging.peerNode.stubs.MessageRequest)) {
+    if (!(obj instanceof com.messaging.peerNode.stubs.SendMessageRequest)) {
       return super.equals(obj);
     }
-    com.messaging.peerNode.stubs.MessageRequest other = (com.messaging.peerNode.stubs.MessageRequest) obj;
+    com.messaging.peerNode.stubs.SendMessageRequest other = (com.messaging.peerNode.stubs.SendMessageRequest) obj;
 
     boolean result = true;
     result = result && getMessage()
@@ -192,69 +192,69 @@ public  final class MessageRequest extends
     return hash;
   }
 
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(byte[] data)
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(java.io.InputStream input)
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseDelimitedFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.messaging.peerNode.stubs.MessageRequest parseFrom(
+  public static com.messaging.peerNode.stubs.SendMessageRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -266,7 +266,7 @@ public  final class MessageRequest extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.messaging.peerNode.stubs.MessageRequest prototype) {
+  public static Builder newBuilder(com.messaging.peerNode.stubs.SendMessageRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -281,25 +281,25 @@ public  final class MessageRequest extends
     return builder;
   }
   /**
-   * Protobuf type {@code com.messaging.peerNode.stubs.MessageRequest}
+   * Protobuf type {@code com.messaging.peerNode.stubs.SendMessageRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.messaging.peerNode.stubs.MessageRequest)
-      com.messaging.peerNode.stubs.MessageRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.messaging.peerNode.stubs.SendMessageRequest)
+      com.messaging.peerNode.stubs.SendMessageRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_MessageRequest_descriptor;
+      return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_SendMessageRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_MessageRequest_fieldAccessorTable
+      return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_SendMessageRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.messaging.peerNode.stubs.MessageRequest.class, com.messaging.peerNode.stubs.MessageRequest.Builder.class);
+              com.messaging.peerNode.stubs.SendMessageRequest.class, com.messaging.peerNode.stubs.SendMessageRequest.Builder.class);
     }
 
-    // Construct using com.messaging.peerNode.stubs.MessageRequest.newBuilder()
+    // Construct using com.messaging.peerNode.stubs.SendMessageRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -325,23 +325,23 @@ public  final class MessageRequest extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_MessageRequest_descriptor;
+      return com.messaging.peerNode.stubs.PeerNode.internal_static_com_messaging_peerNode_stubs_SendMessageRequest_descriptor;
     }
 
-    public com.messaging.peerNode.stubs.MessageRequest getDefaultInstanceForType() {
-      return com.messaging.peerNode.stubs.MessageRequest.getDefaultInstance();
+    public com.messaging.peerNode.stubs.SendMessageRequest getDefaultInstanceForType() {
+      return com.messaging.peerNode.stubs.SendMessageRequest.getDefaultInstance();
     }
 
-    public com.messaging.peerNode.stubs.MessageRequest build() {
-      com.messaging.peerNode.stubs.MessageRequest result = buildPartial();
+    public com.messaging.peerNode.stubs.SendMessageRequest build() {
+      com.messaging.peerNode.stubs.SendMessageRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public com.messaging.peerNode.stubs.MessageRequest buildPartial() {
-      com.messaging.peerNode.stubs.MessageRequest result = new com.messaging.peerNode.stubs.MessageRequest(this);
+    public com.messaging.peerNode.stubs.SendMessageRequest buildPartial() {
+      com.messaging.peerNode.stubs.SendMessageRequest result = new com.messaging.peerNode.stubs.SendMessageRequest(this);
       result.message_ = message_;
       result.targetPort_ = targetPort_;
       onBuilt();
@@ -375,16 +375,16 @@ public  final class MessageRequest extends
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.messaging.peerNode.stubs.MessageRequest) {
-        return mergeFrom((com.messaging.peerNode.stubs.MessageRequest)other);
+      if (other instanceof com.messaging.peerNode.stubs.SendMessageRequest) {
+        return mergeFrom((com.messaging.peerNode.stubs.SendMessageRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.messaging.peerNode.stubs.MessageRequest other) {
-      if (other == com.messaging.peerNode.stubs.MessageRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.messaging.peerNode.stubs.SendMessageRequest other) {
+      if (other == com.messaging.peerNode.stubs.SendMessageRequest.getDefaultInstance()) return this;
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
         onChanged();
@@ -404,11 +404,11 @@ public  final class MessageRequest extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.messaging.peerNode.stubs.MessageRequest parsedMessage = null;
+      com.messaging.peerNode.stubs.SendMessageRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.messaging.peerNode.stubs.MessageRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.messaging.peerNode.stubs.SendMessageRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -523,39 +523,39 @@ public  final class MessageRequest extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.messaging.peerNode.stubs.MessageRequest)
+    // @@protoc_insertion_point(builder_scope:com.messaging.peerNode.stubs.SendMessageRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:com.messaging.peerNode.stubs.MessageRequest)
-  private static final com.messaging.peerNode.stubs.MessageRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.messaging.peerNode.stubs.SendMessageRequest)
+  private static final com.messaging.peerNode.stubs.SendMessageRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.messaging.peerNode.stubs.MessageRequest();
+    DEFAULT_INSTANCE = new com.messaging.peerNode.stubs.SendMessageRequest();
   }
 
-  public static com.messaging.peerNode.stubs.MessageRequest getDefaultInstance() {
+  public static com.messaging.peerNode.stubs.SendMessageRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<MessageRequest>
-      PARSER = new com.google.protobuf.AbstractParser<MessageRequest>() {
-    public MessageRequest parsePartialFrom(
+  private static final com.google.protobuf.Parser<SendMessageRequest>
+      PARSER = new com.google.protobuf.AbstractParser<SendMessageRequest>() {
+    public SendMessageRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageRequest(input, extensionRegistry);
+        return new SendMessageRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<MessageRequest> parser() {
+  public static com.google.protobuf.Parser<SendMessageRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<MessageRequest> getParserForType() {
+  public com.google.protobuf.Parser<SendMessageRequest> getParserForType() {
     return PARSER;
   }
 
-  public com.messaging.peerNode.stubs.MessageRequest getDefaultInstanceForType() {
+  public com.messaging.peerNode.stubs.SendMessageRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

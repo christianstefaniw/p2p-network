@@ -7,6 +7,7 @@ import com.messaging.constants.Constants;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,12 +33,19 @@ public class BootstrappedBootNode extends BootNodeServiceImpl {
     }
 
     private ArrayList<Integer> getRoutingArrayFromBootNode() {
+        ArrayList<Integer> routingArray = new ArrayList<Integer>();
         ManagedChannel channel = BootNodeHelpers.getRandomBootNodeChannel();
         BootNodeServiceBlockingStub stub = BootNodeHelpers.newBlockingStub(channel);
 
         BootstrapBootNodeRequest request = BootstrapBootNodeRequest.newBuilder().setPort(this.port).build();
-        BootstrapBootNodeResponse response = stub.bootstrapBootNode(request);
 
-        return new ArrayList<Integer>(response.getRoutingArrayList());
+        try {
+            BootstrapBootNodeResponse response = stub.bootstrapBootNode(request);
+            routingArray = new ArrayList<Integer>(response.getRoutingArrayList());
+        } catch (StatusRuntimeException e) {
+
+        }
+
+        return routingArray;
     }
 }

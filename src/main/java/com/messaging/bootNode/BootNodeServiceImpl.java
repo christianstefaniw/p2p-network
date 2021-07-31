@@ -34,16 +34,22 @@ public class BootNodeServiceImpl extends BootNodeServiceImplBase {
     @Override
     public void bootstrapPeerNode(BootstrapPeerNodeRequest request,
             StreamObserver<BootstrapPeerNodeResponse> responseObserver) {
-                
-        System.out.println(this.routingArray);
+
         ArrayList<Integer> randomPeerPorts = this.getRandomPeerPorts(5);
 
-        this.routingArray.add(request.getPort());
+        if (!this.isInRoutingArray(request.getPort()))
+            this.routingArray.add(request.getPort());
+
+        System.out.println(this.routingArray);
 
         BootstrapPeerNodeResponse response = BootstrapPeerNodeResponse.newBuilder().addAllRoutingArray(randomPeerPorts)
                 .build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
+    }
+
+    private boolean isInRoutingArray(int port) {
+        return this.routingArray.contains(port);
     }
 
     private ArrayList<Integer> getRandomPeerPorts(int numValues) {
