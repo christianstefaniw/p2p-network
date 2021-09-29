@@ -1,4 +1,4 @@
-# p2p messaging
+# p2p network
 
-A peer 2 peer messaging network using Java, gRPC and Protobufs  
+A peer 2 peer network using Java, gRPC and Protobufs  
 work in progress
